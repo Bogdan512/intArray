@@ -1,15 +1,15 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
 
 namespace IntArray
 {
     public class IntArray
     {
-        ArrayList array;
+        List<int> array;
 
         public IntArray()
         {
-            this.array = new ArrayList();
+            this.array = new List<int>();
         }
 
         public void Add(int element)
@@ -30,38 +30,38 @@ namespace IntArray
 
         public void SetElement(int index, int element)
         {
-            // modifică valoarea elementul de la indexul dat
+            this.array[index] = element;
         }
 
         public bool Contains(int element)
         {
-            // întoarce true dacă elementul dat există în șir
+            return this.array.Contains(element) ? true : false;
         }
 
         public int IndexOf(int element)
         {
-            // întoarce indexul elementului sau -1 dacă elementul nu se
-            // regăsește în șir
+
+            return this.array.IndexOf(element);
         }
 
         public void Insert(int index, int element)
         {
-            // adaugă un nou element pe poziția dată
+            this.array.Insert(index,element);
         }
 
         public void Clear()
         {
-            // șterge toate elementele din șir
+            this.array.Clear();
         }
 
         public void Remove(int element)
         {
-            // șterge prima apariție a elementului din șir	
+            this.array.Remove(element);
         }
 
         public void RemoveAt(int index)
         {
-            // șterge elementul de pe poziția dată
+            this.array.RemoveAt(index);
         }
 
     }
