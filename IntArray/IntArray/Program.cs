@@ -5,63 +5,70 @@ namespace IntArray
 {
     public class IntArray
     {
-        List<int> array;
-
-        public IntArray()
+        int[] array;
+	    public IntArray(int n)
         {
-            this.array = new List<int>();
+            // construiește noul șir
+            this.array = new int[n];
         }
 
         public void Add(int element)
         {
-            this.array.Add(element);
+            // adaugă un nou element la sfârșitul șirului
+            Array.Resize(ref this.array, this.array.Length + 1);
+            this.array[this.array.Length - 1] = element;
         }
 
         public int Count()
         {
-            return this.array.Count;
+            // întorce numărul de elemente din șir
+            int count = 0;
+            for (int i = 0; i < this.array.Length; i++)
+            {
+                count++;
+            }
+            return count;
         }
 
-        public int Element(int index)
-        {
-            int i = (int)array[index];
-            return i;
-        }
+        //public int Element(int index)
+        //{
+        //    // întoarce elementul de la indexul dat
+        //}
 
-        public void SetElement(int index, int element)
-        {
-            this.array[index] = element;
-        }
+        //public void SetElement(int index, int element)
+        //{
+        //    // modifică valoarea elementul de la indexul dat
+        //}
 
-        public bool Contains(int element)
-        {
-            return this.array.Contains(element) ? true : false;
-        }
+        //public bool Contains(int element)
+        //{
+        //    // întoarce true dacă elementul dat există în șir
+        //}
 
-        public int IndexOf(int element)
-        {
-
-            return this.array.IndexOf(element);
-        }
+        //public int IndexOf(int element)
+        //{
+        //    // întoarce indexul elementului sau -1 dacă elementul nu se
+        //    // regăsește în șir
+        //}
 
         public void Insert(int index, int element)
         {
-            this.array.Insert(index,element);
+            // adaugă un nou element pe poziția dată
         }
 
         public void Clear()
         {
-            this.array.Clear();
+            // șterge toate elementele din șir
         }
 
         public void Remove(int element)
         {
-            this.array.Remove(element);
+            // șterge prima apariție a elementului din șir	
         }
 
         public void RemoveAt(int index)
         {
-            this.array.RemoveAt(index);
+            // șterge elementul de pe poziția dată
         }
 
     }
