@@ -78,10 +78,6 @@ namespace IntArray
             }
 
             Array.Resize(ref this.array, this.array.Length - 1);
-            foreach (int i in this.array)
-            {
-                Console.Write(i);
-            }
         }
 
         public void RemoveAt(int index)
