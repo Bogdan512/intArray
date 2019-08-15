@@ -57,7 +57,7 @@ namespace IntArray
             SetElement(index, element);
         }
 
-        public void ShiftRight(int index)
+         void ShiftRight(int index)
         {
             for (int i = this.array.Length - 1; i > index; i--)
             {
@@ -72,7 +72,16 @@ namespace IntArray
 
         public void Remove(int element)
         {
-            // șterge prima apariție a elementului din șir
+            for (int i = 0; i < this.array.Length - 1; i++)
+            {
+                this.array[i] = this.array[i + 1];
+            }
+
+            Array.Resize(ref this.array, this.array.Length - 1);
+            foreach (int i in this.array)
+            {
+                Console.Write(i);
+            }
         }
 
         public void RemoveAt(int index)

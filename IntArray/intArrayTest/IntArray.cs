@@ -90,5 +90,18 @@ namespace IntArray
             ar.Clear();
             Assert.Equal(0, ar.Count());
         }
+
+        [Fact]
+        public void Remove()
+        {
+            IntArray ar = new IntArray();
+            ar.Add(1);
+            ar.Add(2);
+            ar.Add(4);
+            ar.Add(5);
+            ar.Add(6);
+            ar.Remove(1);
+            Assert.Equal(2, ar.Element(0));
+        }
     }
 }
