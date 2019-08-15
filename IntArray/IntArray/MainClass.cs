@@ -6,18 +6,22 @@ namespace IntArray
 {
     public class MainClass
     {
-        static void Main()
+        public static void Main()
         {
             IntArray ar = new IntArray();
-            Console.WriteLine(ar.Count());
-            ar.Add(10);
-            ar.Add(3);
-            Console.WriteLine(ar.Count());
-            Console.WriteLine(ar.Element(1));
-            ar.SetElement(2, 5);
-            Console.WriteLine(ar.Element(2));
-            Console.WriteLine(ar.Contains(4));
+            const int var2 = 2;
+            const int var3 = 3;
+            const int var4 = 4;
+            const int var5 = 5;
+            const int var6 = 6;
+            ar.Add(1);
+            ar.Add(var2);
+            ar.Add(var4);
+            ar.Add(var5);
+            ar.Add(var6);
+            ar.Insert(var2, var3);
             Console.WriteLine();
+            ar.AfisArray();
             Console.Read();
         }
     }

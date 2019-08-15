@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace IntArray
 {
@@ -53,7 +52,27 @@ namespace IntArray
 
         public void Insert(int index, int element)
         {
-            // adaugă un nou element pe poziția dată
+            int[] temp = new int[this.array.Length + 1];
+            for (int i = 0; i <= this.array.Length; i++)
+            {
+                if (i < index)
+                {
+                    temp[i] = this.array[i];
+                }
+
+                if (i == index)
+                {
+                    temp[i] = element;
+                }
+
+                if (i > index)
+                {
+                    temp[i] = this.array[i - 1];
+                }
+            }
+
+            Array.Resize(ref this.array, this.array.Length + 1);
+            this.array = temp;
         }
 
         public void Clear()
