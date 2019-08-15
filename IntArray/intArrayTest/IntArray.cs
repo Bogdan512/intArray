@@ -64,5 +64,19 @@ namespace IntArray
             ar.Add(5);
             Assert.Equal(-1, ar.IndexOf(7));
         }
+
+        [Fact]
+        public void Insert()
+        {
+            IntArray ar = new IntArray();
+            ar.Add(1);
+            ar.Add(2);
+            ar.Add(4);
+            ar.Add(5);
+            ar.Add(6);
+            ar.Insert(2, 3);
+            int[] expected = {1,2,3,4,5,6 };
+         //   Assert.Equal(expected, ar));
+        }
     }
 }

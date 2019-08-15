@@ -52,27 +52,14 @@ namespace IntArray
 
         public void Insert(int index, int element)
         {
-            int[] temp = new int[this.array.Length + 1];
-            for (int i = 0; i <= this.array.Length; i++)
+            Array.Resize(ref this.array, this.array.Length + 1);
+            Console.WriteLine();
+            for (int i = this.array.Length - 1; i > index; i--)
             {
-                if (i < index)
-                {
-                    temp[i] = this.array[i];
-                }
-
-                if (i == index)
-                {
-                    temp[i] = element;
-                }
-
-                if (i > index)
-                {
-                    temp[i] = this.array[i - 1];
-                }
+                this.array[i] = this.array[i - 1];
             }
 
-            Array.Resize(ref this.array, this.array.Length + 1);
-            this.array = temp;
+            this.array[index] = element;
         }
 
         public void Clear()
