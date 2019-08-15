@@ -16,6 +16,7 @@ namespace IntArray
             Console.WriteLine(ar.Element(2));
             ar.SetElement(2, 5);
             Console.WriteLine(ar.Element(2));
+            Console.WriteLine(ar.Contains(4));
             Console.WriteLine();
             Console.Read();
         }

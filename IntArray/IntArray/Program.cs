@@ -29,22 +29,37 @@ namespace IntArray
 
         public void SetElement(int index, int element)
         {
-            // modifică valoarea elementul de la indexul dat
             this.array[index - 1] = element;
         }
 
-        //public bool Contains(int element)
-        //{
-        //    // întoarce true dacă elementul dat există în șir
-        //}
+        public bool Contains(int element)
+        {
+            for (int i = 0; i < this.array.Length; i++)
+            {
+                if(this.array[i] == element)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
-        //public int IndexOf(int element)
-        //{
-        //    // întoarce indexul elementului sau -1 dacă elementul nu se
-        //    // regăsește în șir
-        //}
+        public int IndexOf(int element)
+        {
+            // întoarce indexul elementului sau -1 dacă elementul nu se
+            // regăsește în șir
+            //}
+            for (int i = 0; i < this.array.Length; i++)
+            {
+                if (this.array[i] == element)
+                {
+                    return i+1;
+                }
+            }
+            return -1;
+        }
 
-        public void Insert(int index, int element)
+            public void Insert(int index, int element)
         {
             // adaugă un nou element pe poziția dată
         }
