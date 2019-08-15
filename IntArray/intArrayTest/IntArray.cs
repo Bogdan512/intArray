@@ -75,8 +75,7 @@ namespace IntArray
             ar.Add(5);
             ar.Add(6);
             ar.Insert(2, 3);
-            int[] expected = {1,2,3,4,5,6 };
-         //   Assert.Equal(expected, ar));
+         Assert.Equal(3, ar.Element(2));
         }
     }
 }
