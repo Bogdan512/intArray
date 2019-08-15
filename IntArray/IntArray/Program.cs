@@ -76,7 +76,6 @@ namespace IntArray
             {
                 this.array[i] = this.array[i + 1];
             }
-
             Array.Resize(ref this.array, this.array.Length - 1);
         }
 
