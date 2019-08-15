@@ -24,7 +24,7 @@ namespace IntArray
 
         public int Element(int index)
         {
-            return this.array[index - 1];
+            return this.array[index];
         }
 
         public void SetElement(int index, int element)
@@ -34,21 +34,12 @@ namespace IntArray
 
         public bool Contains(int element)
         {
-            for (int i = 0; i < this.array.Length; i++)
-            {
-                if(this.array[i] == element)
-                {
-                    return true;
-                }
-            }
-            return false;
+
+            return IndexOf(element) >= 0 ? true : false;
         }
 
         public int IndexOf(int element)
         {
-            // întoarce indexul elementului sau -1 dacă elementul nu se
-            // regăsește în șir
-            //}
             for (int i = 0; i < this.array.Length; i++)
             {
                 if (this.array[i] == element)
