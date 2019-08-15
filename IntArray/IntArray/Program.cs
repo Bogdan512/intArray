@@ -6,7 +6,8 @@ namespace IntArray
     public class IntArray
     {
         int[] array;
-	    public IntArray()
+
+        public IntArray()
         {
             this.array = new int[0];
         }
@@ -29,13 +30,12 @@ namespace IntArray
 
         public void SetElement(int index, int element)
         {
-            this.array[index - 1] = element;
+            this.array[index] = element;
         }
 
         public bool Contains(int element)
         {
-
-            return IndexOf(element) >= 0 ? true : false;
+            return IndexOf(element) >= 0;
         }
 
         public int IndexOf(int element)
@@ -44,13 +44,14 @@ namespace IntArray
             {
                 if (this.array[i] == element)
                 {
-                    return i+1;
+                    return i;
                 }
             }
+
             return -1;
         }
 
-            public void Insert(int index, int element)
+        public void Insert(int index, int element)
         {
             // adaugă un nou element pe poziția dată
         }
@@ -62,13 +63,12 @@ namespace IntArray
 
         public void Remove(int element)
         {
-            // șterge prima apariție a elementului din șir	
+            // șterge prima apariție a elementului din șir
         }
 
         public void RemoveAt(int index)
         {
             // șterge elementul de pe poziția dată
         }
-
     }
 }

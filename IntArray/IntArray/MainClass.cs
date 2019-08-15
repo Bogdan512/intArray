@@ -13,7 +13,7 @@ namespace IntArray
             ar.Add(10);
             ar.Add(3);
             Console.WriteLine(ar.Count());
-            Console.WriteLine(ar.Element(2));
+            Console.WriteLine(ar.Element(1));
             ar.SetElement(2, 5);
             Console.WriteLine(ar.Element(2));
             Console.WriteLine(ar.Contains(4));
