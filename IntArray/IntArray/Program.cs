@@ -53,12 +53,16 @@ namespace IntArray
         public void Insert(int index, int element)
         {
             Array.Resize(ref this.array, this.array.Length + 1);
+            ShiftRight(index);
+            SetElement(index, element);
+        }
+
+        public void ShiftRight(int index)
+        {
             for (int i = this.array.Length - 1; i > index; i--)
             {
                 this.array[i] = this.array[i - 1];
             }
-
-            SetElement(index, element);
         }
 
         public void Clear()
