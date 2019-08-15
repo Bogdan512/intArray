@@ -8,9 +8,10 @@ namespace IntArray
     {
         static void Main()
         {
-            IntArray ar = new IntArray(3);
+            IntArray ar = new IntArray();
+            Console.WriteLine(ar.Count());
             ar.Add(10);
-            ar.Add(3);
+            //ar.Add(3);
             Console.WriteLine(ar.Count());
             Console.Read();
         }

@@ -9,7 +9,7 @@ namespace IntArray
 	    public IntArray()
         {
             // construiește noul șir
-            this.array = new int[4];
+            this.array = new int[0];
         }
 
         public void Add(int element)
