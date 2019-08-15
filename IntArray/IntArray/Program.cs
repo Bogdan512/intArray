@@ -6,10 +6,10 @@ namespace IntArray
     public class IntArray
     {
         int[] array;
-	    public IntArray(int n)
+	    public IntArray()
         {
             // construiește noul șir
-            this.array = new int[n];
+            this.array = new int[4];
         }
 
         public void Add(int element)
@@ -22,12 +22,7 @@ namespace IntArray
         public int Count()
         {
             // întorce numărul de elemente din șir
-            int count = 0;
-            for (int i = 0; i < this.array.Length; i++)
-            {
-                count++;
-            }
-            return count;
+            return this.array.Length;
         }
 
         //public int Element(int index)
