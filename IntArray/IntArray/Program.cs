@@ -24,14 +24,14 @@ namespace IntArray
 
         public int Element(int index)
         {
-            // întoarce elementul de la indexul dat
             return this.array[index - 1];
         }
 
-        //public void SetElement(int index, int element)
-        //{
-        //    // modifică valoarea elementul de la indexul dat
-        //}
+        public void SetElement(int index, int element)
+        {
+            // modifică valoarea elementul de la indexul dat
+            this.array[index - 1] = element;
+        }
 
         //public bool Contains(int element)
         //{
