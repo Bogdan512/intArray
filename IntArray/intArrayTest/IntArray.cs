@@ -77,5 +77,18 @@ namespace IntArray
             ar.Insert(2, 3);
          Assert.Equal(3, ar.Element(2));
         }
+
+        [Fact]
+        public void Clear()
+        {
+            IntArray ar = new IntArray();
+            ar.Add(1);
+            ar.Add(2);
+            ar.Add(4);
+            ar.Add(5);
+            ar.Add(6);
+            ar.Clear();
+            Assert.Equal(0, ar.Count());
+        }
     }
 }

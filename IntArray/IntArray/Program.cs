@@ -63,7 +63,7 @@ namespace IntArray
 
         public void Clear()
         {
-            // șterge toate elementele din șir
+            Array.Resize(ref this.array, 0);
         }
 
         public void Remove(int element)
