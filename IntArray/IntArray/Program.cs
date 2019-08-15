@@ -57,12 +57,12 @@ namespace IntArray
             SetElement(index, element);
         }
 
-         void ShiftRight(int index)
+        void ShiftRight(int index)
         {
-            for (int i = this.array.Length - 1; i > index; i--)
-            {
-                this.array[i] = this.array[i - 1];
-            }
+        for (int i = this.array.Length - 1; i > index; i--)
+        {
+            this.array[i] = this.array[i - 1];
+        }
         }
 
         public void Clear()
@@ -76,12 +76,31 @@ namespace IntArray
             {
                 this.array[i] = this.array[i + 1];
             }
+
+
             Array.Resize(ref this.array, this.array.Length - 1);
         }
 
         public void RemoveAt(int index)
         {
             // șterge elementul de pe poziția dată
+            if (index == this.array.Length)
+            {
+                Array.Resize(ref this.array, this.array.Length - 1);
+            }
+            else
+            {
+                ShiftLeft(index);
+                Array.Resize(ref this.array, this.array.Length - 1);
+            }
+        }
+
+        void ShiftLeft(int index)
+        {
+            for (int i = index; i < this.array.Length - 1; i++)
+            {
+                this.array[i] = this.array[i + 1];
+            }
         }
     }
 }

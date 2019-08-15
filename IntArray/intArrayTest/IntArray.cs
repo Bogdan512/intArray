@@ -103,5 +103,19 @@ namespace IntArray
             ar.Remove(1);
             Assert.Equal(2, ar.Element(0));
         }
+
+        [Fact]
+        public void RemoveAt()
+        {
+            IntArray ar = new IntArray();
+            ar.Add(1);
+            ar.Add(2);
+            ar.Add(3);
+            ar.Add(4);
+            ar.Add(5);
+            ar.Add(6);
+            ar.RemoveAt(2);
+            Assert.Equal(4, ar.Element(2));
+        }
     }
 }
