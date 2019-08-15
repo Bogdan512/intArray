@@ -11,8 +11,9 @@ namespace IntArray
             IntArray ar = new IntArray();
             Console.WriteLine(ar.Count());
             ar.Add(10);
-            //ar.Add(3);
+            ar.Add(3);
             Console.WriteLine(ar.Count());
+            Console.WriteLine(ar.Element(2));
             Console.Read();
         }
     }

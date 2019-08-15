@@ -8,27 +8,25 @@ namespace IntArray
         int[] array;
 	    public IntArray()
         {
-            // construiește noul șir
             this.array = new int[0];
         }
 
         public void Add(int element)
         {
-            // adaugă un nou element la sfârșitul șirului
             Array.Resize(ref this.array, this.array.Length + 1);
             this.array[this.array.Length - 1] = element;
         }
 
         public int Count()
         {
-            // întorce numărul de elemente din șir
             return this.array.Length;
         }
 
-        //public int Element(int index)
-        //{
-        //    // întoarce elementul de la indexul dat
-        //}
+        public int Element(int index)
+        {
+            // întoarce elementul de la indexul dat
+            return this.array[index - 1];
+        }
 
         //public void SetElement(int index, int element)
         //{
