@@ -72,17 +72,14 @@ namespace IntArray
 
         public void Remove(int element)
         {
-            bool firstAppear = true;
             for (int i = 0; i < this.array.Length - 1; i++)
             {
-                if (this.array[i] == element && firstAppear == true)
+                if (this.array[i] == element)
                 {
-                    firstAppear = false;
                     RemoveAt(i);
+                    return;
                 }
             }
-
-            Array.Resize(ref this.array, this.array.Length - 1);
         }
 
         public void RemoveAt(int index)
