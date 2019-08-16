@@ -57,14 +57,6 @@ namespace IntArray
             SetElement(index, element);
         }
 
-        void ShiftRight(int index)
-        {
-        for (int i = this.array.Length - 1; i > index; i--)
-        {
-            this.array[i] = this.array[i - 1];
-        }
-        }
-
         public void Clear()
         {
             Array.Resize(ref this.array, 0);
@@ -73,16 +65,26 @@ namespace IntArray
         public void Remove(int element)
         {
             int index = IndexOf(element);
-            if ( index >= 0)
+            if (index < 0)
             {
-                RemoveAt(index);
+                return;
             }
+
+            RemoveAt(index);
         }
 
         public void RemoveAt(int index)
         {
                 ShiftLeft(index);
                 Array.Resize(ref this.array, this.array.Length - 1);
+        }
+
+        void ShiftRight(int index)
+        {
+            for (int i = this.array.Length - 1; i > index; i--)
+            {
+                this.array[i] = this.array[i - 1];
+            }
         }
 
         void ShiftLeft(int index)
