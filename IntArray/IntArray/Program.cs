@@ -72,19 +72,24 @@ namespace IntArray
 
         public void Remove(int element)
         {
-            ShiftFirstElement(element);
+            int index = FindElement(element);
+            if ( index >= 0)
+            {
+                RemoveAt(index);
+            }
         }
 
-        void ShiftFirstElement(int element)
+        int FindElement(int element)
         {
             for (int i = 0; i < this.array.Length - 1; i++)
             {
                 if (this.array[i] == element)
                 {
-                    RemoveAt(i);
-                    return;
+                    return i;
                 }
             }
+
+            return -1;
         }
 
         public void RemoveAt(int index)
