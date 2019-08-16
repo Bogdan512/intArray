@@ -72,6 +72,11 @@ namespace IntArray
 
         public void Remove(int element)
         {
+            ShiftFirstElement(element);
+        }
+
+        void ShiftFirstElement(int element)
+        {
             for (int i = 0; i < this.array.Length - 1; i++)
             {
                 if (this.array[i] == element)
