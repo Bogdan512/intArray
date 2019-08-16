@@ -72,27 +72,23 @@ namespace IntArray
 
         public void Remove(int element)
         {
+            bool firstAppear = true;
             for (int i = 0; i < this.array.Length - 1; i++)
             {
-                this.array[i] = this.array[i + 1];
+                if (this.array[i] == element && firstAppear == true)
+                {
+                    firstAppear = false;
+                    RemoveAt(i);
+                }
             }
-
 
             Array.Resize(ref this.array, this.array.Length - 1);
         }
 
         public void RemoveAt(int index)
         {
-            // șterge elementul de pe poziția dată
-            if (index == this.array.Length)
-            {
-                Array.Resize(ref this.array, this.array.Length - 1);
-            }
-            else
-            {
                 ShiftLeft(index);
                 Array.Resize(ref this.array, this.array.Length - 1);
-            }
         }
 
         void ShiftLeft(int index)

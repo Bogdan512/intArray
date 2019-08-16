@@ -97,7 +97,7 @@ namespace IntArray
             IntArray ar = new IntArray();
             ar.Add(1);
             ar.Add(2);
-            ar.Add(4);
+            ar.Add(1);
             ar.Add(5);
             ar.Add(6);
             ar.Remove(1);
@@ -114,8 +114,8 @@ namespace IntArray
             ar.Add(4);
             ar.Add(5);
             ar.Add(6);
-            ar.RemoveAt(2);
-            Assert.Equal(4, ar.Element(2));
+            ar.RemoveAt(5);
+            Assert.Equal(5, ar.Element(4));
         }
     }
 }
