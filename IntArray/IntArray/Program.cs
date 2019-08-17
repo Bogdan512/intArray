@@ -1,98 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace IntArray
 {
-    public class IntArray
+    public class Program
     {
-        int[] array;
-
-        public IntArray()
+        public static void Main()
         {
-            this.array = new int[0];
-        }
-
-        public void Add(int element)
-        {
-            Array.Resize(ref this.array, this.array.Length + 1);
-            this.array[this.array.Length - 1] = element;
-        }
-
-        public int Count()
-        {
-            return this.array.Length;
-        }
-
-        public int Element(int index)
-        {
-            return this.array[index];
-        }
-
-        public void SetElement(int index, int element)
-        {
-            this.array[index] = element;
-        }
-
-        public bool Contains(int element)
-        {
-            return IndexOf(element) >= 0;
-        }
-
-        public int IndexOf(int element)
-        {
-            for (int i = 0; i < this.array.Length; i++)
-            {
-                if (this.array[i] == element)
-                {
-                    return i;
-                }
-            }
-
-            return -1;
-        }
-
-        public void Insert(int index, int element)
-        {
-            Array.Resize(ref this.array, this.array.Length + 1);
-            ShiftRight(index);
-            SetElement(index, element);
-        }
-
-        public void Clear()
-        {
-            Array.Resize(ref this.array, 0);
-        }
-
-        public void Remove(int element)
-        {
-            int index = IndexOf(element);
-            if (index < 0)
-            {
-                return;
-            }
-
-            RemoveAt(index);
-        }
-
-        public void RemoveAt(int index)
-        {
-                ShiftLeft(index);
-                Array.Resize(ref this.array, this.array.Length - 1);
-        }
-
-        void ShiftRight(int index)
-        {
-            for (int i = this.array.Length - 1; i > index; i--)
-            {
-                this.array[i] = this.array[i - 1];
-            }
-        }
-
-        void ShiftLeft(int index)
-        {
-            for (int i = index; i < this.array.Length - 1; i++)
-            {
-                this.array[i] = this.array[i + 1];
-            }
+            Console.Read();
         }
     }
 }

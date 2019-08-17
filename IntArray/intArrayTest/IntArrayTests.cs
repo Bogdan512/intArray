@@ -4,6 +4,7 @@ using Xunit;
 namespace IntArray
 {
     public class IntArrayTests
+
     {
         [Fact]
         public void Count()
@@ -11,7 +12,7 @@ namespace IntArray
             IntArray ar = new IntArray();
             ar.Add(10);
             ar.Add(3);
-            Assert.Equal(2, ar.Count());
+            Assert.Equal(4, ar.Count());
         }
 
         [Fact]
@@ -114,6 +115,8 @@ namespace IntArray
             ar.Add(4);
             ar.Add(5);
             ar.Add(6);
+            ar.Add(7);
+            ar.Add(8);
             ar.RemoveAt(5);
             Assert.Equal(5, ar.Element(4));
         }
