@@ -16,7 +16,6 @@ namespace IntArray
 
         public void Add(int element)
             {
-            const int doubleInSize = 2;
             this.array[count] = element;
             count++;
             if (count != array.Length)
@@ -24,6 +23,7 @@ namespace IntArray
                 return;
             }
 
+            const int doubleInSize = 2;
             Array.Resize(ref this.array, this.array.Length * doubleInSize);
         }
 
@@ -98,13 +98,8 @@ namespace IntArray
         }
 
         void ShiftLeft(int index)
-            {
-            if (index > count)
-            {
-                return;
-            }
-
-            for (int i = index; i < this.array.Length - 1; i++)
+        {
+            for (int i = index; i < count; i++)
             {
                 this.array[i] = this.array[i + 1];
             }
