@@ -98,7 +98,12 @@ namespace IntArray
         }
 
         void ShiftLeft(int index)
-        {
+            {
+            if (index > count)
+            {
+                return;
+            }
+
             for (int i = index; i < this.array.Length - 1; i++)
             {
                 this.array[i] = this.array[i + 1];
