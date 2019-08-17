@@ -15,13 +15,8 @@ namespace IntArray
         }
 
         public void Add(int element)
-            {
-            if (count == array.Length)
-            {
-                const int doubleInSize = 2;
-                Array.Resize(ref this.array, this.array.Length * doubleInSize);
-            }
-
+        {
+            EnsureCapacity();
             this.array[count] = element;
             count++;
         }
