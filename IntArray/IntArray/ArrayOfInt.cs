@@ -16,15 +16,14 @@ namespace IntArray
 
         public void Add(int element)
             {
-            this.array[count] = element;
-            count++;
-            if (count != array.Length)
+            if (count == array.Length)
             {
-                return;
+                const int doubleInSize = 2;
+                Array.Resize(ref this.array, this.array.Length * doubleInSize);
             }
 
-            const int doubleInSize = 2;
-            Array.Resize(ref this.array, this.array.Length * doubleInSize);
+            this.array[count] = element;
+            count++;
         }
 
         public int Count()
@@ -87,6 +86,17 @@ namespace IntArray
         {
                 ShiftLeft(index);
                 Array.Resize(ref this.array, this.array.Length - 1);
+        }
+
+        void EnsureCapacity()
+            {
+            if (count != array.Length)
+            {
+                return;
+            }
+
+            const int doubleInSize = 2;
+            Array.Resize(ref this.array, this.array.Length * doubleInSize);
         }
 
         void ShiftRight(int index)
