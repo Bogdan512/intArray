@@ -2,12 +2,12 @@
 
 namespace IntArray
 {
-    public class IntArray
+    public class ArrayOfInt
     {
         int[] array;
         int count;
 
-        public IntArray()
+        public ArrayOfInt()
         {
            count = 0;
            const int initialLength = 4;
@@ -19,14 +19,14 @@ namespace IntArray
             const int doubleInSize = 2;
             if (count != array.Length)
             {
-                this.array[count] = element;
-                this.count++;
+                AddElement(element);
+                AddOne();
                 return;
             }
 
             Array.Resize(ref this.array, this.array.Length * doubleInSize);
-            this.array[count] = element;
-            count++;
+            AddElement(element);
+            AddOne();
         }
 
         public int Count()
@@ -89,6 +89,16 @@ namespace IntArray
         {
                 ShiftLeft(index);
                 Array.Resize(ref this.array, this.array.Length - 1);
+        }
+
+        void AddElement(int element)
+        {
+            this.array[count] = element;
+        }
+
+        void AddOne()
+        {
+            count++;
         }
 
         void ShiftRight(int index)
