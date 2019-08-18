@@ -48,7 +48,7 @@ namespace IntArray
 
         public int IndexOf(int element)
         {
-            for (int i = 0; i < this.array.Length; i++)
+            for (int i = 0; i < count; i++)
             {
                 if (this.array[i] == element)
                 {
