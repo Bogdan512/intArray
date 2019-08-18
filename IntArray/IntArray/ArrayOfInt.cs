@@ -101,7 +101,12 @@ namespace IntArray
 
         void ShiftRight(int index)
         {
-            for (int i = this.array.Length - 1; i > count; i--)
+            if (index > count)
+            {
+                return;
+            }
+
+            for (int i = this.array.Length - 1; i > index; i--)
             {
                 this.array[i] = this.array[i - 1];
             }
@@ -109,7 +114,12 @@ namespace IntArray
 
         void ShiftLeft(int index)
         {
-            for (int i = index; i < count; i++)
+            if (index > count)
+            {
+                return;
+            }
+
+            for (int i = index; i < this.array.Length - 1; i++)
             {
                 this.array[i] = this.array[i + 1];
             }
