@@ -28,11 +28,16 @@ namespace IntArray
 
         public int Element(int index)
         {
-            return this.array[index];
+            return index <= count ? this.array[index] : -1;
         }
 
         public void SetElement(int index, int element)
         {
+            if (index > count)
+            {
+                return;
+            }
+
             this.array[index] = element;
         }
 
@@ -96,7 +101,7 @@ namespace IntArray
 
         void ShiftRight(int index)
         {
-            for (int i = this.array.Length - 1; i > index; i--)
+            for (int i = this.array.Length - 1; i > count; i--)
             {
                 this.array[i] = this.array[i - 1];
             }

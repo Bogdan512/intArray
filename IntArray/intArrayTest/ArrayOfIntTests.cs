@@ -76,7 +76,7 @@ namespace IntArray
             ar.Add(5);
             ar.Add(6);
             ar.Insert(2, 3);
-         Assert.Equal(3, ar.Element(2));
+            Assert.Equal(3, ar.Element(2));
         }
 
         [Fact]
