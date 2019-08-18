@@ -23,7 +23,7 @@ namespace IntArray
 
         public int Count()
         {
-            return this.array.Length;
+            return count;
         }
 
         public int Element(int index)
@@ -69,17 +69,18 @@ namespace IntArray
         public void Clear()
         {
             Array.Resize(ref this.array, 0);
+            count = 0;
         }
 
         public void Remove(int element)
         {
-            int index = IndexOf(element);
-            if (index < 0)
+            int indexOfElement = IndexOf(element);
+            if (indexOfElement < 0)
             {
                 return;
             }
 
-            RemoveAt(index);
+            RemoveAt(indexOfElement);
         }
 
         public void RemoveAt(int index)

@@ -12,7 +12,7 @@ namespace IntArray
             ArrayOfInt ar = new ArrayOfInt();
             ar.Add(10);
             ar.Add(3);
-            Assert.Equal(4, ar.Count());
+            Assert.Equal(2, ar.Count());
         }
 
         [Fact]
