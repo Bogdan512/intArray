@@ -12,7 +12,7 @@ namespace IntArray
             ArrayOfInt ar = new ArrayOfInt();
             ar.Add(10);
             ar.Add(3);
-            Assert.Equal(2, ar.Count());
+            Assert.Equal(2, ar.Count);
         }
 
         [Fact]
@@ -89,7 +89,7 @@ namespace IntArray
             ar.Add(5);
             ar.Add(6);
             ar.Clear();
-            Assert.Equal(0, ar.Count());
+            Assert.Equal(0, ar.Count);
         }
 
         [Fact]

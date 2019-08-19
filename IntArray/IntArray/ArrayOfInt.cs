@@ -5,35 +5,31 @@ namespace IntArray
     public class ArrayOfInt
     {
         int[] array;
-        int count;
 
         public ArrayOfInt()
         {
-           count = 0;
+           Count = 0;
            const int initialLength = 4;
            array = new int[initialLength];
         }
 
+        public int Count { get; private set;  }
+
         public void Add(int element)
         {
             EnsureCapacity();
-            this.array[count] = element;
-            count++;
-        }
-
-        public int Count()
-        {
-            return count;
+            this.array[Count] = element;
+            Count++;
         }
 
         public int Element(int index)
         {
-            return index <= count ? this.array[index] : -1;
+            return index <= Count ? this.array[index] : -1;
         }
 
         public void SetElement(int index, int element)
         {
-            if (index > count)
+            if (index > Count)
             {
                 return;
             }
@@ -48,7 +44,7 @@ namespace IntArray
 
         public int IndexOf(int element)
         {
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < Count; i++)
             {
                 if (this.array[i] == element)
                 {
@@ -69,7 +65,7 @@ namespace IntArray
         public void Clear()
         {
             Array.Resize(ref this.array, 0);
-            count = 0;
+            Count = 0;
         }
 
         public void Remove(int element)
@@ -91,7 +87,7 @@ namespace IntArray
 
         void EnsureCapacity()
             {
-            if (count != array.Length)
+            if (Count != array.Length)
             {
                 return;
             }
@@ -102,12 +98,7 @@ namespace IntArray
 
         void ShiftRight(int index)
         {
-            if (index > count)
-            {
-                return;
-            }
-
-            for (int i = this.array.Length - 1; i > index; i--)
+            for (int i = Count; i > index; i--)
             {
                 this.array[i] = this.array[i - 1];
             }
@@ -115,12 +106,7 @@ namespace IntArray
 
         void ShiftLeft(int index)
         {
-            if (index > count)
-            {
-                return;
-            }
-
-            for (int i = index; i < this.array.Length - 1; i++)
+            for (int i = index; i < Count - 1; i++)
             {
                 this.array[i] = this.array[i + 1];
             }
