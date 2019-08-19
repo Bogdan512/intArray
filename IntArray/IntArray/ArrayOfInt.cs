@@ -15,6 +15,12 @@ namespace IntArray
 
         public int Count { get; private set;  }
 
+        public int this[int index]
+        {
+            get => this.array[index];
+            set => this.array[index] = value;
+        }
+
         public void Add(int element)
         {
             EnsureCapacity();

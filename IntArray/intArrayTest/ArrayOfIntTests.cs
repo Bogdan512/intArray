@@ -63,7 +63,7 @@ namespace IntArray
             ar.Add(10);
             ar.Add(3);
             ar.Add(5);
-            Assert.Equal(-1, ar.IndexOf(7));
+            Assert.Equal(5, ar[2]);
         }
 
         [Fact]
@@ -75,8 +75,8 @@ namespace IntArray
             ar.Add(4);
             ar.Add(5);
             ar.Add(6);
-            ar.Insert(2, 3);
-            Assert.Equal(3, ar.Element(2));
+            ar[2] = 3;
+            Assert.Equal(3, ar[2]);
         }
 
         [Fact]
