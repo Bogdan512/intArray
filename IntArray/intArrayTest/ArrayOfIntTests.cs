@@ -22,7 +22,7 @@ namespace IntArray
             ar.Add(10);
             ar.Add(3);
             ar.Add(5);
-            Assert.Equal(5, ar.Element(2));
+            Assert.Equal(5, ar[2]);
         }
 
         [Fact]
@@ -32,8 +32,8 @@ namespace IntArray
             ar.Add(10);
             ar.Add(3);
             ar.Add(5);
-            ar.SetElement(2, 1);
-            Assert.Equal(1, ar.Element(2));
+            ar[2] = 1;
+            Assert.Equal(1, ar[2]);
         }
 
         [Fact]
@@ -102,7 +102,7 @@ namespace IntArray
             ar.Add(5);
             ar.Add(6);
             ar.Remove(1);
-            Assert.Equal(2, ar.Element(0));
+            Assert.Equal(2, ar[0]);
         }
 
         [Fact]
@@ -118,7 +118,7 @@ namespace IntArray
             ar.Add(7);
             ar.Add(8);
             ar.RemoveAt(5);
-            Assert.Equal(5, ar.Element(4));
+            Assert.Equal(5, ar[4]);
         }
     }
 }

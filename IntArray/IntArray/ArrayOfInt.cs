@@ -28,21 +28,6 @@ namespace IntArray
             Count++;
         }
 
-        public int Element(int index)
-        {
-            return index <= Count ? this.array[index] : -1;
-        }
-
-        public void SetElement(int index, int element)
-        {
-            if (index > Count)
-            {
-                return;
-            }
-
-            this.array[index] = element;
-        }
-
         public bool Contains(int element)
         {
             return IndexOf(element) >= 0;
@@ -65,7 +50,7 @@ namespace IntArray
         {
             Array.Resize(ref this.array, this.array.Length + 1);
             ShiftRight(index);
-            SetElement(index, element);
+            array[index] = element;
         }
 
         public void Clear()
