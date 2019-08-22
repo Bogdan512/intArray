@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace IntArray
+namespace IntArrays
 {
-    public class ArrayOfInt
+    public class IntArray
     {
         int[] array;
 
-        public ArrayOfInt()
+        public IntArray()
         {
            Count = 0;
            const int initialLength = 4;

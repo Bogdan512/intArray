@@ -1,15 +1,15 @@
 using System;
 using Xunit;
 
-namespace IntArray
+namespace IntArrays
 {
-    public class ArrayOfIntTests
+    public class IntArrayTests
 
     {
         [Fact]
         public void Count()
         {
-            ArrayOfInt ar = new ArrayOfInt();
+            IntArray ar = new IntArray();
             ar.Add(10);
             ar.Add(3);
             Assert.Equal(2, ar.Count);
@@ -18,7 +18,7 @@ namespace IntArray
         [Fact]
         public void Element()
         {
-            ArrayOfInt ar = new ArrayOfInt();
+            IntArray ar = new IntArray();
             ar.Add(10);
             ar.Add(3);
             ar.Add(5);
@@ -28,7 +28,7 @@ namespace IntArray
         [Fact]
         public void SetElement()
         {
-            ArrayOfInt ar = new ArrayOfInt();
+            IntArray ar = new IntArray();
             ar.Add(10);
             ar.Add(3);
             ar.Add(5);
@@ -39,7 +39,7 @@ namespace IntArray
         [Fact]
         public void Contains()
         {
-            ArrayOfInt ar = new ArrayOfInt();
+            IntArray ar = new IntArray();
             ar.Add(10);
             ar.Add(3);
             ar.Add(5);
@@ -49,7 +49,7 @@ namespace IntArray
         [Fact]
         public void Return_IndexOf_If_Element_Exists()
         {
-            ArrayOfInt ar = new ArrayOfInt();
+            IntArray ar = new IntArray();
             ar.Add(10);
             ar.Add(3);
             ar.Add(5);
@@ -59,7 +59,7 @@ namespace IntArray
         [Fact]
         public void Return_Minus1_If_Element_Doesnt_Exists()
         {
-            ArrayOfInt ar = new ArrayOfInt();
+            IntArray ar = new IntArray();
             ar.Add(10);
             ar.Add(3);
             ar.Add(5);
@@ -69,7 +69,7 @@ namespace IntArray
         [Fact]
         public void Insert()
         {
-            ArrayOfInt ar = new ArrayOfInt();
+            IntArray ar = new IntArray();
             ar.Add(1);
             ar.Add(2);
             ar.Add(4);
@@ -82,7 +82,7 @@ namespace IntArray
         [Fact]
         public void Clear()
         {
-            ArrayOfInt ar = new ArrayOfInt();
+            IntArray ar = new IntArray();
             ar.Add(1);
             ar.Add(2);
             ar.Add(4);
@@ -95,7 +95,7 @@ namespace IntArray
         [Fact]
         public void Remove()
         {
-            ArrayOfInt ar = new ArrayOfInt();
+            IntArray ar = new IntArray();
             ar.Add(1);
             ar.Add(2);
             ar.Add(1);
@@ -108,7 +108,7 @@ namespace IntArray
         [Fact]
         public void RemoveAt()
         {
-            ArrayOfInt ar = new ArrayOfInt();
+            IntArray ar = new IntArray();
             ar.Add(1);
             ar.Add(2);
             ar.Add(3);
