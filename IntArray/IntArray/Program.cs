@@ -8,7 +8,21 @@ namespace IntArrays
     {
         public static void Main()
         {
-            SortedIntArray sortedIntArray = new SortedIntArray();
+            int[] array = { 4, 2, 6, 1, 5 };
+            foreach (int i in array)
+            {
+                Console.Write(i);
+            }
+
+            SortedIntArray sia = new SortedIntArray(array);
+
+            Console.WriteLine();
+
+            foreach (int i in array)
+            {
+                Console.Write(i);
+            }
+
             Console.Read();
         }
     }
