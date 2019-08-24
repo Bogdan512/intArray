@@ -6,7 +6,7 @@ namespace IntArrays
 {
     public class SortedIntArray : IntArray
     {
-        public SortedIntArray(int[] array)
+        public int[] SortedArray(int[] array)
         {
             for (int i = 0; i < array.Length; i++)
             {
@@ -28,6 +28,8 @@ namespace IntArrays
                     break;
                 }
             }
+
+            return array;
         }
     }
 }
