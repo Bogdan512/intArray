@@ -6,11 +6,11 @@ namespace IntArrays
 {
     public class SortedIntArray : IntArray
     {
-        readonly int[] array;
+        readonly int[] arr;
 
-        public SortedIntArray(int[] array)
+        public SortedIntArray() : base()
         {
-            this.array = array;
+            this.arr = GetArray();
         }
 
         public int[] Sort()
@@ -20,19 +20,19 @@ namespace IntArrays
             {
                 swap = false;
 
-                for (int j = 0; j < this.array.Length - 1; j++)
+                for (int j = 0; j < this.arr.Length - 1; j++)
                 {
-                    if (this.array[j] > this.array[j + 1])
+                    if (this.arr[j] > this.arr[j + 1])
                     {
                         swap = true;
-                        int temp = array[j];
-                        this.array[j] = this.array[j + 1];
-                        this.array[j + 1] = temp;
+                        int temp = arr[j];
+                        this.arr[j] = this.arr[j + 1];
+                        this.arr[j + 1] = temp;
                     }
                 }
             }
 
-            return this.array;
+            return this.arr;
         }
     }
 }

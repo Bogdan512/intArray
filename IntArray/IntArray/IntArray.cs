@@ -21,6 +21,11 @@ namespace IntArrays
             set => this.array[index] = value;
         }
 
+        public int[] GetArray()
+        {
+            return array;
+        }
+
         public void Add(int element)
         {
             EnsureCapacity();

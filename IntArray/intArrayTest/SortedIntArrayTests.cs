@@ -11,7 +11,7 @@ namespace IntArrays
         public void Sort()
         {
             int[] array = { 4, 2, 6, 1, 5 };
-            SortedIntArray sia = new SortedIntArray(array);
+            SortedIntArray sia = new SortedIntArray();
             int[] expect = {1, 2, 4, 5, 6};
             Assert.Equal(expect, sia.Sort());
         }
