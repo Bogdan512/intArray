@@ -81,6 +81,14 @@ namespace IntArrays
                 Array.Resize(ref this.array, this.array.Length - 1);
         }
 
+        public void Afis()
+        {
+            foreach (int i in array)
+            {
+                Console.Write(i);
+            }
+        }
+
         void EnsureCapacity()
             {
             if (Count != array.Length)

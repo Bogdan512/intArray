@@ -6,33 +6,24 @@ namespace IntArrays
 {
     public class SortedIntArray : IntArray
     {
-        readonly int[] arr;
-
-        public SortedIntArray() : base()
-        {
-            this.arr = GetArray();
-        }
-
-        public int[] Sort()
+        public SortedIntArray()
         {
             bool swap = true;
             while (swap)
             {
                 swap = false;
 
-                for (int j = 0; j < this.arr.Length - 1; j++)
+                for (int j = 0; j < Count - 1; j++)
                 {
-                    if (this.arr[j] > this.arr[j + 1])
+                    if (GetArray()[j] > GetArray()[j + 1])
                     {
                         swap = true;
-                        int temp = arr[j];
-                        this.arr[j] = this.arr[j + 1];
-                        this.arr[j + 1] = temp;
+                        int temp = GetArray()[j];
+                        GetArray()[j] = GetArray()[j + 1];
+                        GetArray()[j + 1] = temp;
                     }
                 }
             }
-
-            return this.arr;
         }
     }
 }
