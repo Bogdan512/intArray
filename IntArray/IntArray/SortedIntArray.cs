@@ -19,12 +19,12 @@ namespace IntArrays
 
                 for (int j = 0; j < Count - 1; j++)
                 {
-                    if (GetArray()[j] > GetArray()[j + 1])
+                    if (this[j] > this[j + 1])
                     {
                         swap = true;
-                        int temp = GetArray()[j];
-                        GetArray()[j] = GetArray()[j + 1];
-                        GetArray()[j + 1] = temp;
+                        int temp = this[j];
+                        this[j] = this[j + 1];
+                        this[j + 1] = temp;
                     }
                 }
             }
