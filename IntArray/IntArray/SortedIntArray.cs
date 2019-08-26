@@ -6,7 +6,11 @@ namespace IntArrays
 {
     public class SortedIntArray : IntArray
     {
-        public SortedIntArray()
+        public SortedIntArray() : base()
+        {
+        }
+
+        public void Sort()
         {
             bool swap = true;
             while (swap)
@@ -24,6 +28,12 @@ namespace IntArrays
                     }
                 }
             }
+        }
+
+        public new void Add(int element)
+        {
+            base.Add(element);
+            Sort();
         }
     }
 }
