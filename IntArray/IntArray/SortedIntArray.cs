@@ -6,6 +6,20 @@ namespace IntArrays
 {
     public class SortedIntArray : IntArray
     {
+        public new int this[int index]
+        {
+            get => this[index];
+            set
+            {
+                if (this[index - 1] > value && value > this[index + 1] || index != 0 || index != Count - 1)
+                {
+                    return;
+                }
+
+                this[index] = value;
+            }
+        }
+
         public void Sort()
         {
             bool swap = true;
@@ -33,8 +47,8 @@ namespace IntArrays
         }
 
         public new void Insert(int index, int element)
-            {
-            if (this[index - 1] > element && element > this[index + 1])
+        {
+            if (this[index - 1] > element && element > this[index + 1] || index != 0 || index != Count - 1)
             {
                 return;
             }
