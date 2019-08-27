@@ -6,10 +6,6 @@ namespace IntArrays
 {
     public class SortedIntArray : IntArray
     {
-        public SortedIntArray() : base()
-        {
-        }
-
         public void Sort()
         {
             bool swap = true;
@@ -33,6 +29,24 @@ namespace IntArrays
         public new void Add(int element)
         {
             base.Add(element);
+            Sort();
+        }
+
+        public new void Insert(int index, int element)
+        {
+            base.Insert(index, element);
+            Sort();
+        }
+
+        public new void Remove(int element)
+        {
+            base.Remove(element);
+            Sort();
+        }
+
+        public new void RemoveAt(int index)
+        {
+            base.RemoveAt(index);
             Sort();
         }
     }

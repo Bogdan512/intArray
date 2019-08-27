@@ -21,11 +21,6 @@ namespace IntArrays
             set => this.array[index] = value;
         }
 
-        public int[] GetArray()
-        {
-            return array;
-        }
-
         public void Add(int element)
         {
             EnsureCapacity();
@@ -79,14 +74,6 @@ namespace IntArrays
         {
                 ShiftLeft(index);
                 Array.Resize(ref this.array, this.array.Length - 1);
-        }
-
-        public void Afis()
-        {
-            foreach (int i in array)
-            {
-                Console.Write(i);
-            }
         }
 
         void EnsureCapacity()

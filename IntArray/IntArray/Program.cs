@@ -20,7 +20,6 @@ namespace IntArrays
             ar.Add(e);
             ar.Add(f);
             ar.Add(a);
-            ar.Afis();
 
             Console.Read();
         }
