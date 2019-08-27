@@ -33,21 +33,13 @@ namespace IntArrays
         }
 
         public new void Insert(int index, int element)
-        {
+            {
+            if (this[index - 1] > element && element > this[index + 1])
+            {
+                return;
+            }
+
             base.Insert(index, element);
-            Sort();
-        }
-
-        public new void Remove(int element)
-        {
-            base.Remove(element);
-            Sort();
-        }
-
-        public new void RemoveAt(int index)
-        {
-            base.RemoveAt(index);
-            Sort();
         }
     }
 }
