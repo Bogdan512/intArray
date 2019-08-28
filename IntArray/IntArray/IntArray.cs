@@ -8,12 +8,12 @@ namespace IntArrays
 
         public IntArray()
         {
-           Count = 0;
-           const int initialLength = 4;
-           array = new int[initialLength];
+            Count = 0;
+            const int initialLength = 4;
+            array = new int[initialLength];
         }
 
-        public int Count { get; private set;  }
+        public int Count { get; private set; }
 
         public int this[int index]
         {
@@ -72,12 +72,20 @@ namespace IntArrays
 
         public void RemoveAt(int index)
         {
-                ShiftLeft(index);
-                Array.Resize(ref this.array, this.array.Length - 1);
+            ShiftLeft(index);
+            Array.Resize(ref this.array, this.array.Length - 1);
+        }
+
+        public void Afis()
+        {
+            foreach (int i in array)
+            {
+                Console.Write(i);
+            }
         }
 
         void EnsureCapacity()
-            {
+        {
             if (Count != array.Length)
             {
                 return;

@@ -9,8 +9,10 @@ namespace IntArrays
         public static void Main()
         {
             SortedIntArray ar = new SortedIntArray();
+            const int aa = 0;
             const int a = 1;
             const int b = 2;
+            const int c = 3;
             const int d = 4;
             const int e = 5;
             const int f = 6;
@@ -18,9 +20,12 @@ namespace IntArrays
             ar.Add(d);
             ar.Add(b);
             ar.Add(e);
-            ar.Add(f);
+            ar.Add(aa);
             ar.Add(a);
-
+            ar.Afis();
+            Console.WriteLine();
+            ar.Insert(b, c);
+            ar.Afis();
             Console.Read();
         }
     }
