@@ -33,13 +33,28 @@ namespace IntArrays
         }
 
         public new void Insert(int index, int element)
+        {
+            if (index > 0 && index < Count)
             {
-            if (this[index] > element && element > this[index + 1])
-            {
+                if (element < this[index])
+                {
+                    base.Insert(index, element);
+                }
+
                 return;
             }
 
-            if ((index != 1 && this[index] <= element) && (index != Count && this[index] >= element))
+            if (index == Count)
+            {
+                if (element > this[index])
+                {
+                    base.Insert(index, element);
+                }
+
+                return;
+            }
+
+            if (element >= this[index])
             {
                 return;
             }

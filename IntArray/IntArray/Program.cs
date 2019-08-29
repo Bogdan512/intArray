@@ -19,9 +19,9 @@ namespace IntArrays
 
             ar.Add(d);
             ar.Add(b);
-            ar.Add(e);
-            ar.Add(aa);
+            ar.Add(f);
             ar.Add(a);
+            ar.Add(e);
             ar.Afis();
             Console.WriteLine();
             ar.Insert(b, c);
