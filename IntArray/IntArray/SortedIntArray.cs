@@ -6,6 +6,40 @@ namespace IntArrays
 {
     public class SortedIntArray : IntArray
     {
+        public new int this[int indexer]
+        {
+            get => this[indexer];
+            set
+            {
+                if (indexer > 0 && indexer < Count)
+                {
+                    if (indexer < this[indexer])
+                    {
+                        this[indexer] = value;
+                    }
+
+                    return;
+                }
+
+                if (indexer == Count)
+                {
+                    if (value > this[indexer])
+                    {
+                        this[indexer] = value;
+                    }
+
+                    return;
+                }
+
+                if (value >= this[indexer])
+                {
+                    return;
+                }
+
+                this[indexer] = value;
+            }
+        }
+
         public void Sort()
         {
             bool swap = true;
@@ -34,7 +68,7 @@ namespace IntArrays
 
         public new void Insert(int index, int element)
         {
-            if (index > 0 && index < Count)
+            if (index > 0 && index < Count || index == 0)
             {
                 if (element < this[index])
                 {
@@ -44,17 +78,7 @@ namespace IntArrays
                 return;
             }
 
-            if (index == Count)
-            {
-                if (element > this[index])
-                {
-                    base.Insert(index, element);
-                }
-
-                return;
-            }
-
-            if (element >= this[index])
+            if (element <= this[index])
             {
                 return;
             }
