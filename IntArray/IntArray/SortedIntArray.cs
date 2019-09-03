@@ -34,7 +34,7 @@ namespace IntArrays
 
         public new void Insert(int index, int element)
         {
-            if (index > 0 && index < Count && this[index - 1] > element || element > this[index])
+            if (index > 0 && index < Count && this[index - 1] < element && element < this[index])
             {
                 base.Insert(index, element);
             }
