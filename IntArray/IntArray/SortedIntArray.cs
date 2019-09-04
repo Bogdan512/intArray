@@ -49,7 +49,8 @@ namespace IntArrays
 
         int GetValueOrDefault(int index, int defaultValue)
         {
-            return this[index] > defaultValue ? this[index] : defaultValue;
+            return index >= 0 && index < Count ? this[index] : defaultValue;
         }
+    }
     }
 }
