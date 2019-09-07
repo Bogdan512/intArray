@@ -33,13 +33,9 @@ namespace IntArrays
         }
 
         public new void Insert(int index, int element)
-        {
-            if (index == Count)
             {
-                base.Insert(index, element);
-            }
-
-            if (GetValueOrDefault(index, element) <= element)
+            int getValueOrDefault = GetValueOrDefault(index - 1, index);
+            if ((element < getValueOrDefault || element > this[index]) && (element < getValueOrDefault || Count != index))
             {
                 return;
             }
@@ -51,6 +47,5 @@ namespace IntArrays
         {
             return index >= 0 && index < Count ? this[index] : defaultValue;
         }
-    }
     }
 }
