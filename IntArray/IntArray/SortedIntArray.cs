@@ -34,7 +34,6 @@ namespace IntArrays
 
         public new void Insert(int index, int element)
             {
-            int getValueOrDefault = GetValueOrDefault(index - 1, index);
             if (GetValueOrDefault(index - 1, element) > element || element > GetValueOrDefault(index, element))
             {
                 return;
