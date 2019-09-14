@@ -25,7 +25,7 @@ namespace IntArrays
             ar.Add(e);
             ar.Afis();
             Console.WriteLine();
-            ar[b] = g;
+            ar[b] = c;
             ar.Afis();
             Console.Read();
         }

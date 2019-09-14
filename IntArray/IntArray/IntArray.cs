@@ -84,16 +84,6 @@ namespace IntArrays
             }
         }
 
-        protected int[] Get()
-        {
-            return array;
-        }
-
-        protected void Set(int index, int value)
-        {
-            array[index] = value;
-        }
-
         void EnsureCapacity()
         {
             if (Count != array.Length)
