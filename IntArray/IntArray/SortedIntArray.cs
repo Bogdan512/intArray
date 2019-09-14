@@ -6,6 +6,26 @@ namespace IntArrays
 {
     public class SortedIntArray : IntArray
     {
+        static bool isNotSet;
+
+        public override int this[int index]
+        {
+            set
+            {
+                if (isNotSet)
+                {
+                    Set(index, value);
+                }
+
+                if (GetValueOrDefault(index - 1, value) <= value && value <= GetValueOrDefault(index + 1, value) && !isNotSet)
+                {
+                    Set(index, value);
+                }
+
+                Get();
+            }
+        }
+
         public void Sort()
         {
             bool swap = true;
@@ -17,10 +37,12 @@ namespace IntArrays
                 {
                     if (this[j] > this[j + 1])
                     {
+                        isNotSet = true;
                         swap = true;
                         int temp = this[j];
                         this[j] = this[j + 1];
                         this[j + 1] = temp;
+                        isNotSet = false;
                     }
                 }
             }

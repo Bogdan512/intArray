@@ -15,7 +15,7 @@ namespace IntArrays
 
         public int Count { get; private set; }
 
-        public int this[int index]
+        public virtual int this[int index]
         {
             get => this.array[index];
             set => this.array[index] = value;
@@ -82,6 +82,16 @@ namespace IntArrays
             {
                 Console.Write(i);
             }
+        }
+
+        protected int[] Get()
+        {
+            return array;
+        }
+
+        protected void Set(int index, int value)
+        {
+            array[index] = value;
         }
 
         void EnsureCapacity()

@@ -16,6 +16,7 @@ namespace IntArrays
             const int d = 4;
             const int e = 5;
             const int f = 6;
+            const int g = 7;
 
             ar.Add(d);
             ar.Add(b);
@@ -24,7 +25,7 @@ namespace IntArrays
             ar.Add(e);
             ar.Afis();
             Console.WriteLine();
-            ar.Insert(b, c);
+            ar[b] = g;
             ar.Afis();
             Console.Read();
         }
