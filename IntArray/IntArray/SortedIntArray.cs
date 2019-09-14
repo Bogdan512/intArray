@@ -10,7 +10,7 @@ namespace IntArrays
         {
             set
                 {
-                if (GetValueOrDefault(index - 1, value) > value || value > GetValueOrDefault(index, value))
+                if (GetValueOrDefault(index - 1, value) > value || value > GetValueOrDefault(index + 1, value))
                 {
                     return;
                 }
