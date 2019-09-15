@@ -39,7 +39,7 @@ namespace IntOfArrays
         {
             for (int i = 0; i < Count; i++)
             {
-                if ((int)this.array[i] == (int)element)
+                if (this.array[i].Equals(element))
                 {
                     return i;
                 }
