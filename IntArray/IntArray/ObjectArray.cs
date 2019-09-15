@@ -4,7 +4,7 @@ using System.Text;
 
 namespace IntOfArrays
 {
-    class ObjectArray
+    public class ObjectArray
     {
         object[] array;
 
@@ -39,7 +39,7 @@ namespace IntOfArrays
         {
             for (int i = 0; i < Count; i++)
             {
-                if (this.array[i] == element)
+                if ((int)this.array[i] == (int)element)
                 {
                     return i;
                 }
