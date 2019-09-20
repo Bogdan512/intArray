@@ -18,15 +18,20 @@ namespace IntArrays
             const int f = 6;
             const int g = 7;
 
+            var enumerator = new ObjectArray().GetEnumerator();
+
             ar.Add(d);
             ar.Add(b);
             ar.Add(f);
             ar.Add(a);
             ar.Add(e);
             ar.Afis();
-            Console.WriteLine();
-            ar[b] = c;
-            ar.Afis();
+
+            while (enumerator.MoveNext())
+            {
+                Console.WriteLine(enumerator.Current);
+            }
+
             Console.Read();
         }
     }

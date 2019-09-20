@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Collections;
 
-namespace IntOfArrays
+namespace IntArrays
 {
-    public class ObjectArray
+#pragma warning disable CA1710 // Identifiers should have correct suffix
+    public class ObjectArray : IEnumerable
+#pragma warning restore CA1710 // Identifiers should have correct suffix
     {
         object[] array;
 
@@ -21,6 +22,16 @@ namespace IntOfArrays
         {
             get => this.array[index];
             set => this.array[index] = value;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return new MyEnumerator(array);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return new MyEnumerator(array);
         }
 
         public void Add(object element)
