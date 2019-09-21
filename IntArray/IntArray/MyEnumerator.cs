@@ -8,11 +8,13 @@ namespace IntArrays
     public class MyEnumerator : IEnumerator
     {
         readonly object[] enumeratorArray;
+        readonly int count;
         private int position = -1;
 
-        public MyEnumerator(object[] enumeratorArray)
+        public MyEnumerator(object[] enumeratorArray, int count)
         {
             this.enumeratorArray = enumeratorArray;
+            this.count = count;
         }
 
         public object Current => enumeratorArray[position];
@@ -20,7 +22,7 @@ namespace IntArrays
         public bool MoveNext()
         {
             position++;
-            return position < enumeratorArray.Length;
+            return position < count;
         }
 
         public void Reset()

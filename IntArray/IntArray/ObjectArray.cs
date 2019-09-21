@@ -26,7 +26,7 @@ namespace IntArrays
 
         public IEnumerator GetEnumerator()
         {
-            return new MyEnumerator(array);
+            return new MyEnumerator(array, Count);
         }
 
         public void Add(object element)
