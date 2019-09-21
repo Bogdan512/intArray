@@ -29,11 +29,6 @@ namespace IntArrays
             return new MyEnumerator(array);
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return new MyEnumerator(array);
-        }
-
         public void Add(object element)
         {
             EnsureCapacity();

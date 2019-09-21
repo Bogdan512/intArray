@@ -17,8 +17,6 @@ namespace IntArrays
 
         public object Current => enumeratorArray[position];
 
-        object IEnumerator.Current => Current;
-
         public bool MoveNext()
         {
             position++;
