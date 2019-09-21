@@ -17,7 +17,18 @@ namespace IntArrays
             this.count = count;
         }
 
-        public object Current => enumeratorArray[position];
+        public object Current
+        {
+            get
+            {
+                if (count == 0)
+                {
+                    return null;
+                }
+
+                return enumeratorArray[position];
+            }
+        }
 
         public bool MoveNext()
         {
