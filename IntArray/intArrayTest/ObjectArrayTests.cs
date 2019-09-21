@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 
-namespace IntOfArrays
+namespace IntArrays
 {
     public class ObjectArrayTests
     {
@@ -79,18 +79,7 @@ namespace IntOfArrays
             Assert.Equal(5, or[2]);
         }
 
-        [Fact]
-        public void Insert()
-        {
-            ObjectArray or = new ObjectArray();
-            or.Add(1);
-            or.Add(2);
-            or.Add(4);
-            or.Add(5);
-            or.Add(6);
-            or[2] = 3;
-            Assert.Equal(3, or[2]);
-        }
+        
 
         [Fact]
         public void Clear()
