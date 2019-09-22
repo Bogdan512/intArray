@@ -3,7 +3,9 @@ using System.Collections;
 
 namespace IntArrays
 {
-    public class ObjectArray
+#pragma warning disable CA1710 // Identifiers should have correct suffix
+    public class ObjectArray : IEnumerable
+#pragma warning restore CA1710 // Identifiers should have correct suffix
     {
         object[] array;
 
@@ -22,7 +24,12 @@ namespace IntArrays
             set => this.array[index] = value;
         }
 
-        public IEnumerable GetEnumerator()
+        public IEnumerator GetEnumerator()
+        {
+            return new MyEnumerator(array, Count);
+        }
+
+        public IEnumerable GetEnum()
         {
             foreach (object obj in array)
             {
