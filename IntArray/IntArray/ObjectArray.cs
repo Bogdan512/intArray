@@ -26,14 +26,9 @@ namespace IntArrays
 
         public IEnumerator GetEnumerator()
         {
-            return new MyEnumerator(array, Count);
-        }
-
-        public IEnumerable GetEnum()
-        {
-            foreach (object obj in array)
+            for (int i = 0; i < Count; i++)
             {
-                yield return obj;
+                yield return array[i];
             }
         }
 

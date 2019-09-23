@@ -24,7 +24,7 @@ namespace IntArrays
             ar.Add(a);
             ar.Add(e);
 
-            foreach (object obj in ar.GetEnum())
+            foreach (object obj in ar)
             {
                 Console.Write(obj);
             }
