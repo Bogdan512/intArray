@@ -5,12 +5,12 @@ using Xunit;
 
 namespace IntArrays
 {
-    public class ObjectArrayTests
+    public class MyListTests
     {
         [Fact]
         public void Add()
         {
-            ObjectArray or = new ObjectArray();
+            MyList<int> or = new MyList<int>();
             or.Add(4);
             or.Add(2);
             or.Add(6);
@@ -23,16 +23,16 @@ namespace IntArrays
         [Fact]
         public void Count()
         {
-            ObjectArray or = new ObjectArray();
+            MyList<int> or = new MyList<int>();
             or.Add(10);
             or.Add(3);
-            Assert.Equal(2, or.Count);
+            Assert.Equal(2, or.Count());
         }
 
         [Fact]
         public void Element()
         {
-            ObjectArray or = new ObjectArray();
+            MyList<int> or = new MyList<int>();
             or.Add(10);
             or.Add(3);
             or.Add(5);
@@ -42,7 +42,7 @@ namespace IntArrays
         [Fact]
         public void SetElement()
         {
-            ObjectArray or = new ObjectArray();
+            MyList<int> or = new MyList<int>();
             or.Add(10);
             or.Add(3);
             or.Add(5);
@@ -53,7 +53,7 @@ namespace IntArrays
         [Fact]
         public void Contains()
         {
-            ObjectArray or = new ObjectArray();
+            MyList<int> or = new MyList<int>();
             or.Add(10);
             or.Add(3);
             or.Add(5);
@@ -63,7 +63,7 @@ namespace IntArrays
         [Fact]
         public void Return_IndexOf_If_Element_Exists()
         {
-            ObjectArray or = new ObjectArray();
+            MyList<int> or = new MyList<int>();
             or.Add(10);
             or.Add(3);
             or.Add(5);
@@ -72,7 +72,7 @@ namespace IntArrays
         [Fact]
         public void Return_Minus1_If_Element_Doesnt_Exists()
         {
-            ObjectArray or = new ObjectArray();
+            MyList<int> or = new MyList<int>();
             or.Add(10);
             or.Add(3);
             or.Add(5);
@@ -84,20 +84,20 @@ namespace IntArrays
         [Fact]
         public void Clear()
         {
-            ObjectArray or = new ObjectArray();
+            MyList<int> or = new MyList<int>();
             or.Add(1);
             or.Add(2);
             or.Add(4);
             or.Add(5);
             or.Add(6);
             or.Clear();
-            Assert.Equal(0, or.Count);
+            Assert.Equal(0, or.Count());
         }
 
         [Fact]
         public void Remove()
         {
-            ObjectArray or = new ObjectArray();
+            MyList<int> or = new MyList<int>();
             or.Add(1);
             or.Add(2);
             or.Add(1);
@@ -110,7 +110,7 @@ namespace IntArrays
         [Fact]
         public void RemoveAt()
         {
-            ObjectArray or = new ObjectArray();
+            MyList<int> or = new MyList<int>();
             or.Add(1);
             or.Add(2);
             or.Add(3);
