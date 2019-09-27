@@ -8,7 +8,7 @@ namespace IntArrays
     {
         public static void Main()
         {
-            MyList<int> ar = new MyList<int>();
+            ObjectArray ar = new ObjectArray();
             const int aa = 0;
             const int a = 1;
             const int b = 2;
@@ -17,7 +17,7 @@ namespace IntArrays
             const int e = 5;
             const int f = 6;
             const int g = 7;
-
+            IList<int> il = new IList<int>;
             ar.Add(d);
             ar.Add(b);
             ar.Add(f);
