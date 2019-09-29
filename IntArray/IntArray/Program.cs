@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,7 +9,6 @@ namespace IntArrays
     {
         public static void Main()
         {
-            ObjectArray ar = new ObjectArray();
             const int aa = 0;
             const int a = 1;
             const int b = 2;
@@ -17,16 +17,18 @@ namespace IntArrays
             const int e = 5;
             const int f = 6;
             const int g = 7;
-            IList<int> il = new IList<int>;
-            ar.Add(d);
-            ar.Add(b);
-            ar.Add(f);
-            ar.Add(a);
-            ar.Add(e);
 
-            foreach (int obj in ar)
+            List<SortedList> sr = new List<SortedList>();
+
+            sr.Add(new SortedList() { Value = b });
+            sr.Add(new SortedList() { Value = e });
+            sr.Add(new SortedList() { Value = c });
+            sr.Add(new SortedList() { Value = a });
+            sr.Add(new SortedList() { Value = d });
+            sr.Sort();
+            foreach (SortedList element in sr)
             {
-                Console.Write(obj);
+                Console.Write(element.Value);
             }
 
             Console.Read();

@@ -5,12 +5,12 @@ using System.Collections.Generic;
 namespace IntArrays
 {
 #pragma warning disable CA1710 // Identifiers should have correct suffix
-    public class List<T> : IEnumerable
+    public class MyList<T> : IEnumerable
 #pragma warning restore CA1710 // Identifiers should have correct suffix
     {
         T[] array;
 
-        public List()
+        public MyList()
         {
             Count = 0;
             const int initialLength = 4;
