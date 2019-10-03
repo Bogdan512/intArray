@@ -18,19 +18,6 @@ namespace IntArrays
             const int f = 6;
             const int g = 7;
 
-            List<SortedList> sr = new List<SortedList>();
-
-            sr.Add(new SortedList() { Value = b });
-            sr.Add(new SortedList() { Value = e });
-            sr.Add(new SortedList() { Value = c });
-            sr.Add(new SortedList() { Value = a });
-            sr.Add(new SortedList() { Value = d });
-            sr.Sort();
-            foreach (SortedList element in sr)
-            {
-                Console.Write(element.Value);
-            }
-
             Console.Read();
         }
     }

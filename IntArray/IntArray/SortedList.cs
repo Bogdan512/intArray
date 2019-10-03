@@ -4,13 +4,14 @@ using System.Text;
 
 namespace IntArrays
 {
-     class SortedList : IComparable<SortedList>
+    public class SortedList<T>
+        where T : IComparable<T>
     {
         public int Value { get; set; }
 
-        public int CompareTo(SortedList other)
+        public int CompareTo(SortedList<T> other)
         {
-            return Value.CompareTo(other.Value);
+            return this.Value.CompareTo(other.Value);
         }
     }
 }
