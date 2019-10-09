@@ -47,5 +47,31 @@ namespace IntArrays
             int[] expect = { 1, 2, 4, 5, 6, 0, 0, 0 };
             Assert.Equal(1, ar[0]);
         }
+
+        [Fact]
+        public void This_Does_Not_Set()
+        {
+            SortedList<int> ar = new SortedList<int>();
+            ar.Add(4);
+            ar.Add(2);
+            ar.Add(1);
+            ar.Add(5);
+            ar[2] = 7;
+            int[] expect = { 1, 2, 4, 5, 0, 0, 0 };
+            Assert.Equal(4, ar[2]);
+        }
+
+        [Fact]
+        public void This_Set()
+        {
+            SortedList<int> ar = new SortedList<int>();
+            ar.Add(4);
+            ar.Add(2);
+            ar.Add(1);
+            ar.Add(5);
+            ar[2] = 3;
+            int[] expect = { 1, 2, 4, 5, 0, 0, 0 };
+            Assert.Equal(3, ar[2]);
+        }
     }
 }

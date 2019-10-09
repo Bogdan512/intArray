@@ -9,6 +9,19 @@ namespace IntArrays
 #pragma warning restore CA1710 // Identifiers should have correct suffix
         where T : IComparable<T>
     {
+        public override T this[int index]
+        {
+            set
+            {
+                if (GetValueOrDefault(index - 1, value).CompareTo(value) > 0 || value.CompareTo(GetValueOrDefault(index + 1, value)) > 0)
+                {
+                    return;
+                }
+
+                base[index] = value;
+            }
+        }
+
         public override void Add(T element)
         {
             base.Add(element);
@@ -28,8 +41,8 @@ namespace IntArrays
                     {
                         swap = true;
                         var temp = this[j];
-                        this[j] = this[j + 1];
-                        this[j + 1] = temp;
+                        base[j] = base[j + 1];
+                        base[j + 1] = temp;
                     }
                 }
             }
