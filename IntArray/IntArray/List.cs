@@ -33,7 +33,7 @@ namespace IntArrays
             }
         }
 
-        public void Add(T element)
+        public virtual void Add(T element)
         {
             EnsureCapacity();
             this.array[Count] = element;

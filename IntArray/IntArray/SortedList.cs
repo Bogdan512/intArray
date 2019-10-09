@@ -9,7 +9,7 @@ namespace IntArrays
 #pragma warning restore CA1710 // Identifiers should have correct suffix
         where T : IComparable<T>
     {
-        public new void Add(T element)
+        public override void Add(T element)
         {
             base.Add(element);
             Sort();
