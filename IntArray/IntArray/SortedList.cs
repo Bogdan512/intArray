@@ -9,8 +9,6 @@ namespace IntArrays
 #pragma warning restore CA1710 // Identifiers should have correct suffix
         where T : IComparable<T>
     {
-        public T TheT { get; set; }
-
         public new void Add(T element)
         {
             base.Add(element);
@@ -35,11 +33,6 @@ namespace IntArrays
                     }
                 }
             }
-        }
-
-        public int CompareTo(T other)
-        {
-           return TheT.CompareTo(other);
         }
     }
 }
