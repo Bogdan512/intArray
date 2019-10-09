@@ -9,6 +9,8 @@ namespace IntArrays
     {
         public static void Main()
         {
+            SortedList<int> ar = new SortedList<int>();
+
             const int aa = 0;
             const int a = 1;
             const int b = 2;
@@ -17,6 +19,19 @@ namespace IntArrays
             const int e = 5;
             const int f = 6;
             const int g = 7;
+            ar.Add(d);
+            ar.Add(b);
+            ar.Add(f);
+            ar.Add(a);
+            ar.Add(e);
+
+            ar.Afis();
+            Console.WriteLine();
+
+            foreach (int i in ar)
+            {
+                Console.Write(i);
+            }
 
             Console.Read();
         }

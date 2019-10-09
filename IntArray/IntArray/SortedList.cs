@@ -4,14 +4,42 @@ using System.Text;
 
 namespace IntArrays
 {
-    public class SortedList<T>
+#pragma warning disable CA1710 // Identifiers should have correct suffix
+    public class SortedList<T> : List<T>
+#pragma warning restore CA1710 // Identifiers should have correct suffix
         where T : IComparable<T>
     {
-        public int Value { get; set; }
+        public T TheT { get; set; }
 
-        public int CompareTo(SortedList<T> other)
+        public new void Add(T element)
         {
-            return this.Value.CompareTo(other.Value);
+            base.Add(element);
+            Sort();
+        }
+
+        public void Sort()
+        {
+            bool swap = true;
+            while (swap)
+            {
+                swap = false;
+
+                for (int j = 0; j < Count - 1; j++)
+                {
+                    if (this[j].CompareTo(this[j + 1]) > 0)
+                    {
+                        swap = true;
+                        var temp = this[j];
+                        this[j] = this[j + 1];
+                        this[j + 1] = temp;
+                    }
+                }
+            }
+        }
+
+        public int CompareTo(T other)
+        {
+           return TheT.CompareTo(other);
         }
     }
 }
