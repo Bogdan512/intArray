@@ -34,5 +34,20 @@ namespace IntArrays
                 }
             }
         }
+
+        public override void Insert(int index, T element)
+        {
+            if (GetValueOrDefault(index - 1, element).CompareTo(element) > 0 || element.CompareTo(GetValueOrDefault(index, element)) > 0)
+            {
+                return;
+            }
+
+            base.Insert(index, element);
+        }
+
+        T GetValueOrDefault(int index, T defaultValue)
+        {
+            return index >= 0 && index < Count ? this[index] : defaultValue;
+        }
     }
 }

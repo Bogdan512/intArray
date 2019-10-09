@@ -58,7 +58,7 @@ namespace IntArrays
             return -1;
         }
 
-        public void Insert(int index, T element)
+        public virtual void Insert(int index, T element)
         {
             Array.Resize(ref this.array, this.array.Length + 1);
             ShiftRight(index);
