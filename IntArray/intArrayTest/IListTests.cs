@@ -5,7 +5,7 @@ using Xunit;
 
 namespace IntArrays
 {
-    public class MyListTests
+    public class IListTests
     {
         [Fact]
         public void Add()
