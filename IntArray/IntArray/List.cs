@@ -5,12 +5,12 @@ using System.Collections.Generic;
 namespace IntArrays
 {
 #pragma warning disable CA1710 // Identifiers should have correct suffix
-    public class IList<T>
+    public class List<T> : IList<T>
 #pragma warning restore CA1710 // Identifiers should have correct suffix
     {
         T[] array;
 
-        public IList()
+        public List()
         {
             Count = 0;
             const int initialLength = 4;
@@ -18,6 +18,14 @@ namespace IntArrays
         }
 
         public int Count { get; private set; }
+
+        public bool IsReadOnly
+        {
+            get
+            {
+                return false;
+            }
+        }
 
         public virtual T this[int index]
         {
@@ -33,23 +41,23 @@ namespace IntArrays
             }
         }
 
-        public virtual void Add(T element)
+        public virtual void Add(T item)
         {
             EnsureCapacity();
-            this.array[Count] = element;
+            this.array[Count] = item;
             Count++;
         }
 
-        public bool Contains(T element)
+        public bool Contains(T item)
         {
-            return IndexOf(element) >= 0;
+            return IndexOf(item) >= 0;
         }
 
-        public int IndexOf(T element)
+        public int IndexOf(T item)
         {
             for (int i = 0; i < Count; i++)
             {
-                if (this.array[i].Equals(element))
+                if (this.array[i].Equals(item))
                 {
                     return i;
                 }
@@ -58,11 +66,11 @@ namespace IntArrays
             return -1;
         }
 
-        public virtual void Insert(int index, T element)
+        public virtual void Insert(int index, T item)
         {
             Array.Resize(ref this.array, this.array.Length + 1);
             ShiftRight(index);
-            array[index] = element;
+            array[index] = item;
         }
 
         public void Clear()
@@ -71,21 +79,35 @@ namespace IntArrays
             Count = 0;
         }
 
-        public void Remove(T element)
+        bool ICollection<T>.Remove(T item)
         {
-            int indexOfElement = IndexOf(element);
+            int indexOfElement = IndexOf(item);
             if (indexOfElement < 0)
             {
-                return;
+                return false;
             }
 
             RemoveAt(indexOfElement);
+            return true;
         }
 
         public void RemoveAt(int index)
         {
             ShiftLeft(index);
             Array.Resize(ref this.array, this.array.Length - 1);
+        }
+
+        public void CopyTo(T[] array, int arrayIndex)
+        {
+            for (int i = 0; i < Count; i++)
+            {
+                array.SetValue(this.array[i], arrayIndex++);
+            }
+        }
+
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
 
         public void Afis()

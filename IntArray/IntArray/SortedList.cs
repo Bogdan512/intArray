@@ -5,7 +5,7 @@ using System.Text;
 namespace IntArrays
 {
 #pragma warning disable CA1710 // Identifiers should have correct suffix
-    public class SortedList<T> : IList<T>
+    public class SortedList<T> : List<T>
 #pragma warning restore CA1710 // Identifiers should have correct suffix
         where T : IComparable<T>
     {
@@ -22,9 +22,9 @@ namespace IntArrays
             }
         }
 
-        public override void Add(T element)
+        public override void Add(T item)
         {
-            base.Add(element);
+            base.Add(item);
             Sort();
         }
 
@@ -48,14 +48,14 @@ namespace IntArrays
             }
         }
 
-        public override void Insert(int index, T element)
+        public override void Insert(int index, T item)
         {
-            if (GetValueOrDefault(index - 1, element).CompareTo(element) > 0 || element.CompareTo(GetValueOrDefault(index, element)) > 0)
+            if (GetValueOrDefault(index - 1, item).CompareTo(item) > 0 || item.CompareTo(GetValueOrDefault(index, item)) > 0)
             {
                 return;
             }
 
-            base.Insert(index, element);
+            base.Insert(index, item);
         }
 
         T GetValueOrDefault(int index, T defaultValue)

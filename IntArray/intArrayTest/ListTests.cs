@@ -5,7 +5,7 @@ using Xunit;
 
 namespace IntArrays
 {
-    public class IListTests
+    public class ListTests
     {
         [Fact]
         public void Add()
@@ -95,10 +95,9 @@ namespace IntArrays
         }
 
         [Fact]
-        public void Remove()
+        public void ToRemove()
         {
             List<int> or = new List<int>();
-
             or.Add(1);
             or.Add(2);
             or.Add(1);
