@@ -79,7 +79,7 @@ namespace IntArrays
             Count = 0;
         }
 
-        bool ICollection<T>.Remove(T item)
+        public bool Remove(T item)
         {
             int indexOfElement = IndexOf(item);
             if (indexOfElement < 0)
