@@ -33,7 +33,18 @@ namespace IntArrays
                 Console.Write(i);
             }
 
+            var first = new Student("bob");
+            var second = new Student("john");
+            Swap(ref first, ref second);
+
             Console.Read();
+        }
+
+        public static void Swap<T>(ref T a, ref T b)
+        {
+            T temp = a;
+            a = b;
+            b = temp;
         }
     }
 }
