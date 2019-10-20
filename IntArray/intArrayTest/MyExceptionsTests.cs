@@ -8,11 +8,11 @@ namespace IntArrays
     public class MyExceptionsTests
     {
         [Fact]
-        public void Throws_DivideByZeroException()
+        public void Throws_Exception()
         {
-            MyExceptions me = new MyExceptions();
-            Action testcode = (me.MyDivideByZeroException) => { throw new DivideByZeroException(); }
-            Assert.Throws<DivideByZeroException>(me.MyDivideByZeroException());
+            var me = new MyExceptions();
+
+            Assert.Throws<InvalidOperationException>(() => me.ReadCurrent());
         }
     }
 }

@@ -6,41 +6,22 @@ namespace IntArrays
 {
     public class MyExceptions
     {
-        public void MyDivideByZeroException()
-        {
-            int a = 1;
-            const int b = 5;
-            a--;
-            int c = a;
+        readonly int a = 42;
+        bool isInitialized;
 
-            try
-            {
-               int rez = b / c;
-            }
-            catch (DivideByZeroException e)
-            {
-                Console.WriteLine("An error occured");
-                Console.WriteLine(e.Message);
-                Console.WriteLine(e.StackTrace);
-            }
+        public void Initialize()
+        {
+            isInitialized = true;
         }
 
-        public void MyIndexOutOfRangeException()
+        public int ReadCurrent()
         {
-            int[] array = { 1, 2, 3, 4, 5 };
+            if (!isInitialized)
+            {
+                throw new InvalidOperationException("Cannot read before initializing.");
+            }
 
-            try
-            {
-                for (int i = 5; i <= array.Length; i++)
-                {
-                    Console.WriteLine(array[i]);
-                }
-            }
-            catch (IndexOutOfRangeException e)
-            {
-                Console.WriteLine(e.Message);
-                Console.WriteLine(e.StackTrace);
-            }
+            return a;
         }
     }
 }

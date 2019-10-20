@@ -10,7 +10,6 @@ namespace IntArrays
         public static void Main()
         {
             MyExceptions me = new MyExceptions();
-            me.SomeExceptions();
 
             SortedList<int> ar = new SortedList<int>();
 
