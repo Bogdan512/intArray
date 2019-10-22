@@ -69,7 +69,16 @@ namespace IntArrays
         public virtual void Insert(int index, T item)
         {
             Array.Resize(ref this.array, this.array.Length + 1);
-            ShiftRight(index);
+            try
+            {
+                ShiftRight(index);
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
+
             array[index] = item;
         }
 
@@ -93,7 +102,16 @@ namespace IntArrays
 
         public void RemoveAt(int index)
         {
-            ShiftLeft(index);
+            try
+            {
+                ShiftLeft(index);
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
+
             Array.Resize(ref this.array, this.array.Length - 1);
         }
 
@@ -101,7 +119,15 @@ namespace IntArrays
         {
             for (int i = 0; i < Count; i++)
             {
-                array.SetValue(this.array[i], arrayIndex++);
+                try
+                {
+                    array.SetValue(this.array[i], arrayIndex++);
+                }
+                catch (IndexOutOfRangeException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    Console.WriteLine(ex.StackTrace);
+                }
             }
         }
 
