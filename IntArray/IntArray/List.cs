@@ -72,14 +72,18 @@ namespace IntArrays
             try
             {
                 ShiftRight(index);
+                array[index] = item;
             }
-            catch (IndexOutOfRangeException ex)
+            catch (ArgumentOutOfRangeException ex)
             {
                 Console.WriteLine(ex.Message);
                 Console.WriteLine(ex.StackTrace);
             }
-
-            array[index] = item;
+            catch (NotSupportedException ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
         }
 
         public void Clear()
@@ -96,7 +100,16 @@ namespace IntArrays
                 return false;
             }
 
-            RemoveAt(indexOfElement);
+            try
+            {
+                RemoveAt(indexOfElement);
+            }
+            catch (NotSupportedException ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
+
             return true;
         }
 
@@ -106,7 +119,12 @@ namespace IntArrays
             {
                 ShiftLeft(index);
             }
-            catch (IndexOutOfRangeException ex)
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
+            catch (NotSupportedException ex)
             {
                 Console.WriteLine(ex.Message);
                 Console.WriteLine(ex.StackTrace);
@@ -117,17 +135,27 @@ namespace IntArrays
 
         public void CopyTo(T[] array, int arrayIndex)
         {
-            for (int i = 0; i < Count; i++)
+            try
             {
-                try
+                for (int i = 0; i < Count; i++)
                 {
                     array.SetValue(this.array[i], arrayIndex++);
                 }
-                catch (IndexOutOfRangeException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    Console.WriteLine(ex.StackTrace);
-                }
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
             }
         }
 
