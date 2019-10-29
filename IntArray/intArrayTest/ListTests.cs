@@ -21,6 +21,20 @@ namespace IntArrays
         }
 
         [Fact]
+        public void Insert()
+        {
+            List<int> or = new List<int>();
+            or.Add(4);
+            or.Add(2);
+            or.Add(6);
+            or.Add(1);
+            or.Add(5);
+            or.Insert(6, 3);
+            int[] expect = { 4, 2, 6, 1, 5, 0, 0, 0 };
+            Assert.Equal(0, or[5]);
+        }
+
+        [Fact]
         public void Count()
         {
             List<int> or = new List<int>();

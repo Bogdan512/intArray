@@ -68,16 +68,20 @@ namespace IntArrays
 
         public virtual void Insert(int index, T item)
         {
-            Array.Resize(ref this.array, this.array.Length + 1);
             try
             {
+                if (index < 0 || index > Count)
+                {
+                    throw new ArgumentException("Invalid index");
+                }
+
+                Array.Resize(ref this.array, this.array.Length + 1);
                 ShiftRight(index);
                 array[index] = item;
             }
-            catch (ArgumentOutOfRangeException ex)
+            catch (ArgumentException ex)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("Index out of range");
             }
             catch (NotSupportedException ex)
             {
