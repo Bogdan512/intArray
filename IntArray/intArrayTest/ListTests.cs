@@ -29,6 +29,14 @@ namespace IntArrays
         }
 
         [Fact]
+        public void RemoveAt_Throws_Exception()
+        {
+            var me = new List<int>();
+
+            Assert.Throws<ArgumentException>(() => me.RemoveAt(6));
+        }
+
+        [Fact]
         public void Count()
         {
             List<int> or = new List<int>();

@@ -98,21 +98,12 @@ namespace IntArrays
 
         public void RemoveAt(int index)
         {
-            try
+            if (index < 0 || index > Count)
             {
-                ShiftLeft(index);
-            }
-            catch (ArgumentOutOfRangeException ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
-            }
-            catch (NotSupportedException ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                throw new ArgumentException("Invalid index");
             }
 
+            ShiftLeft(index);
             Array.Resize(ref this.array, this.array.Length - 1);
         }
 
