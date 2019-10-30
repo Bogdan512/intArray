@@ -109,27 +109,19 @@ namespace IntArrays
 
         public void CopyTo(T[] array, int arrayIndex)
         {
-            try
+            if (arrayIndex < 0 || arrayIndex > Count)
             {
-                for (int i = 0; i < Count; i++)
-                {
-                    array.SetValue(this.array[i], arrayIndex++);
-                }
+                throw new ArgumentException("Invalid index");
             }
-            catch (ArgumentNullException ex)
+
+            if (array.Length < this.array.Length - arrayIndex)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                throw new OverflowException("Array length too small");
             }
-            catch (ArgumentOutOfRangeException ex)
+
+            for (int i = 0; i < Count; i++)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
-            }
-            catch (ArgumentException ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                array.SetValue(this.array[i], arrayIndex++);
             }
         }
 

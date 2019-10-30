@@ -37,6 +37,32 @@ namespace IntArrays
         }
 
         [Fact]
+        public void CopyTo_Throws_ArgumentException()
+        {
+            var or = new List<int>();
+            or.Add(4);
+            or.Add(2);
+            or.Add(6);
+            or.Add(1);
+            or.Add(5);
+            int[] ar = new int[10];
+            Assert.Throws<ArgumentException>(() => or.CopyTo(ar,7));
+        }
+
+        [Fact]
+        public void CopyTo_Throws_OverFlowException()
+        {
+            var or = new List<int>();
+            or.Add(4);
+            or.Add(2);
+            or.Add(6);
+            or.Add(1);
+            or.Add(5);
+            int[] ar = new int[2];
+            Assert.Throws<OverflowException>(() => or.CopyTo(ar, 2));
+        }
+
+        [Fact]
         public void Count()
         {
             List<int> or = new List<int>();
