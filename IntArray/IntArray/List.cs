@@ -68,26 +68,14 @@ namespace IntArrays
 
         public virtual void Insert(int index, T item)
         {
-            try
+            if (index < 0 || index > Count)
             {
-                if (index < 0 || index > Count)
-                {
-                    throw new ArgumentException("Invalid index");
-                }
+                throw new ArgumentException("Invalid index");
+            }
 
-                Array.Resize(ref this.array, this.array.Length + 1);
-                ShiftRight(index);
-                array[index] = item;
-            }
-            catch (ArgumentException ex)
-            {
-                Console.WriteLine("Index out of range");
-            }
-            catch (NotSupportedException ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
-            }
+            Array.Resize(ref this.array, this.array.Length + 1);
+            ShiftRight(index);
+            array[index] = item;
         }
 
         public void Clear()
@@ -104,16 +92,7 @@ namespace IntArrays
                 return false;
             }
 
-            try
-            {
-                RemoveAt(indexOfElement);
-            }
-            catch (NotSupportedException ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
-            }
-
+            RemoveAt(indexOfElement);
             return true;
         }
 
