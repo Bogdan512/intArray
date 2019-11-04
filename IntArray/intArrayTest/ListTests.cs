@@ -7,6 +7,31 @@ namespace IntArrays
 {
     public class ListTests
     {
+
+        [Fact]
+        public void Get()
+        {
+            List<int> or = new List<int>();
+            or.Add(4);
+            or.Add(2);
+            or.Add(6);
+            or.Add(1);
+            or.Add(5);
+            Assert.Throws<ArgumentException>(() => or[6]);
+        }
+
+        [Fact]
+        public void Set()
+        {
+            List<int> or = new List<int>();
+            or.Add(4);
+            or.Add(2);
+            or.Add(6);
+            or.Add(1);
+            or.Add(5);
+            Assert.Throws<ArgumentException>(() => or[6] = 3);
+        }
+
         [Fact]
         public void Add()
         {

@@ -8,6 +8,7 @@ namespace IntArrays
     public class List<T> : IList<T>
 #pragma warning restore CA1710 // Identifiers should have correct suffix
     {
+        private const string Message = "Invalid index";
         T[] array;
 
         public List()
@@ -29,8 +30,25 @@ namespace IntArrays
 
         public virtual T this[int index]
         {
-            get => this.array[index];
-            set => this.array[index] = value;
+            get
+            {
+                if (index < 0 || index > Count)
+                {
+                    throw new ArgumentException(Message);
+                }
+
+                return this.array[index];
+            }
+
+            set
+            {
+                if (index < 0 || index > Count)
+                {
+                    throw new ArgumentException(Message);
+                }
+
+                this.array[index] = value;
+            }
         }
 
         public IEnumerator GetEnumerator()
@@ -70,7 +88,7 @@ namespace IntArrays
         {
             if (index < 0 || index > Count)
             {
-                throw new ArgumentException("Invalid index");
+                throw new ArgumentException(Message);
             }
 
             Array.Resize(ref this.array, this.array.Length + 1);
@@ -100,7 +118,7 @@ namespace IntArrays
         {
             if (index < 0 || index > Count)
             {
-                throw new ArgumentException("Invalid index");
+                throw new ArgumentException(Message);
             }
 
             ShiftLeft(index);
@@ -111,7 +129,7 @@ namespace IntArrays
         {
             if (arrayIndex < 0 || arrayIndex > Count)
             {
-                throw new ArgumentException("Invalid index");
+                throw new ArgumentException(Message);
             }
 
             if (array.Length < this.array.Length - arrayIndex)
