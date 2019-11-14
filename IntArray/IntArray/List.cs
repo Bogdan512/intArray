@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace IntArrays
 {
@@ -8,7 +9,7 @@ namespace IntArrays
     public class List<T> : IList<T>
 #pragma warning restore CA1710 // Identifiers should have correct suffix
     {
-        private const string Message = "Invalid index";
+        private const string MessageInvalidIndex = "Invalid index";
         T[] array;
 
         public List()
@@ -34,7 +35,7 @@ namespace IntArrays
             {
                 if (index < 0 || index > Count)
                 {
-                    throw new ArgumentException(Message);
+                    throw new ArgumentException(MessageInvalidIndex);
                 }
 
                 return this.array[index];
@@ -44,7 +45,12 @@ namespace IntArrays
             {
                 if (index < 0 || index > Count)
                 {
-                    throw new ArgumentException(Message);
+                    throw new ArgumentException(MessageInvalidIndex);
+                }
+
+                if (array.IsReadOnly)
+                {
+                    throw new NotSupportedException(MessageInvalidIndex);
                 }
 
                 this.array[index] = value;
@@ -57,6 +63,11 @@ namespace IntArrays
             {
                 yield return array[i];
             }
+        }
+
+        public T[] GetArray()
+        {
+            return array;
         }
 
         public virtual void Add(T item)
@@ -88,7 +99,7 @@ namespace IntArrays
         {
             if (index < 0 || index > Count)
             {
-                throw new ArgumentException(Message);
+                throw new ArgumentException(MessageInvalidIndex);
             }
 
             Array.Resize(ref this.array, this.array.Length + 1);
@@ -118,7 +129,7 @@ namespace IntArrays
         {
             if (index < 0 || index > Count)
             {
-                throw new ArgumentException(Message);
+                throw new ArgumentException(MessageInvalidIndex);
             }
 
             ShiftLeft(index);
@@ -129,7 +140,7 @@ namespace IntArrays
         {
             if (arrayIndex < 0 || arrayIndex > Count)
             {
-                throw new ArgumentException(Message);
+                throw new ArgumentException(MessageInvalidIndex);
             }
 
             if (array.Length < this.array.Length - arrayIndex)
