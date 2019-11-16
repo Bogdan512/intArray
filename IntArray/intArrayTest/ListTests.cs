@@ -11,13 +11,14 @@ namespace IntArrays
         [Fact]
         public void ReadOnlyList()
         {
-            List<int> or = new List<int>();
-            or.Add(4);
-            or.Add(2);
-            or.Add(6);
-            or.Add(1);
-            or.Add(5);
-            Assert.Throws<ArgumentException>(() => or[6]);
+            List<int> list = new List<int>();
+            list.Add(4);
+            list.Add(2);
+            list.Add(6);
+            list.Add(1);
+            list.Add(5);
+            var readOnlyList = list.AsReadOnly();
+            Assert.Throws<NotSupportedException>(() => readOnlyList.Add(7));
         }
 
         [Fact]

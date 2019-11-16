@@ -65,9 +65,9 @@ namespace IntArrays
             }
         }
 
-        public T[] GetArray()
+        public IList<T> AsReadOnly()
         {
-            return array;
+            return Array.AsReadOnly<T>(array);
         }
 
         public virtual void Add(T item)
