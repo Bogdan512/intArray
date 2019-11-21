@@ -65,11 +65,6 @@ namespace IntArrays
             }
         }
 
-        public IList<T> AsReadOnly()
-        {
-            return Array.AsReadOnly<T>(array);
-        }
-
         public IList<T> ReadOnly()
         {
             T[] list = new T[Count];
