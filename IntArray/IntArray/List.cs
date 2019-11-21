@@ -70,6 +70,17 @@ namespace IntArrays
             return array;
         }
 
+        public IList<T> ReadOnly()
+        {
+            T[] list = new T[Count];
+            for (int i = 0; i < Count; i++)
+            {
+                list[i] = array[i];
+            }
+
+            return Array.AsReadOnly<T>(list);
+        }
+
         public virtual void Add(T item)
         {
             EnsureCapacity();
