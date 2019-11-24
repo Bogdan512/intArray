@@ -64,32 +64,32 @@ namespace IntArrays
 
         public virtual void Add(T item)
         {
-            throw new ArgumentException(MessageReadOnly);
+            throw new NotSupportedException(MessageReadOnly);
         }
 
         public new void Insert(int index, T item)
         {
-            throw new ArgumentException(MessageReadOnly);
+            throw new NotSupportedException(MessageReadOnly);
         }
 
         public new void Clear()
         {
-            throw new ArgumentException(MessageReadOnly);
+            throw new NotSupportedException(MessageReadOnly);
         }
 
         public new bool Remove(T item)
         {
-            throw new ArgumentException(MessageReadOnly);
+            throw new NotSupportedException(MessageReadOnly);
         }
 
         public new void RemoveAt(int index)
         {
-            throw new ArgumentException(MessageReadOnly);
+            throw new NotSupportedException(MessageReadOnly);
         }
 
         public new void CopyTo(T[] array, int arrayIndex)
         {
-            throw new ArgumentException(MessageReadOnly);
+            throw new NotSupportedException(MessageReadOnly);
         }
 
         IEnumerator<T> IEnumerable<T>.GetEnumerator()
