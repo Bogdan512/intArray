@@ -18,7 +18,7 @@ namespace IntArrays
             list.Add(1);
             list.Add(5);
             var readOnlyList = list.ReadOnly();
-            Assert.Throws<NotSupportedException>(() => readOnlyList.Add(7));
+            Assert.Throws<NotSupportedException>(() => readOnlyList.Add(8));
         }
 
         [Fact]
