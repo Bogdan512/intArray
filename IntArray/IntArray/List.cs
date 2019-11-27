@@ -73,7 +73,7 @@ namespace IntArrays
                 list[i] = array[i];
             }
 
-            return Array.AsReadOnly<T>(list);
+            return new AsReadOnly<T>(list);
         }
 
         public virtual void Add(T item)
