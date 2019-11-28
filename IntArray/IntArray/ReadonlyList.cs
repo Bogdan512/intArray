@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 namespace IntArrays
 {
 #pragma warning disable CA1710 // Identifiers should have correct suffix
-    public class ReadOnlyList<T> : List<T>, IList<T>
+    public class ReadOnlyList<T>
 #pragma warning restore CA1710 // Identifiers should have correct suffix
     {
         private const string MessageInvalidIndex = "Invalid index";
@@ -22,7 +22,7 @@ namespace IntArrays
         {
             get
             {
-                if (index < 0 || index > Count)
+                if (index < 0 || index > arr.Length)
                 {
                     throw new ArgumentException(MessageInvalidIndex);
                 }
@@ -38,7 +38,7 @@ namespace IntArrays
 
         public IEnumerator GetEnumerator()
         {
-            for (int i = 0; i < Count; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
                 yield return arr[i];
             }
@@ -51,7 +51,7 @@ namespace IntArrays
 
         public int IndexOf(T item)
         {
-            for (int i = 0; i < Count; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
                 if (this.arr[i].Equals(item))
                 {
@@ -62,39 +62,34 @@ namespace IntArrays
             return -1;
         }
 
-        public virtual void Add(T item)
+        public void Add(T item)
         {
             throw new NotSupportedException(MessageReadOnly);
         }
 
-        public new void Insert(int index, T item)
+        public void Insert(int index, T item)
         {
             throw new NotSupportedException(MessageReadOnly);
         }
 
-        public new void Clear()
+        public void Clear()
         {
             throw new NotSupportedException(MessageReadOnly);
         }
 
-        public new bool Remove(T item)
+        public bool Remove(T item)
         {
             throw new NotSupportedException(MessageReadOnly);
         }
 
-        public new void RemoveAt(int index)
+        public void RemoveAt(int index)
         {
             throw new NotSupportedException(MessageReadOnly);
         }
 
-        public new void CopyTo(T[] array, int arrayIndex)
+        public void CopyTo(T[] array, int arrayIndex)
         {
             throw new NotSupportedException(MessageReadOnly);
-        }
-
-        IEnumerator<T> IEnumerable<T>.GetEnumerator()
-        {
-            throw new NotImplementedException();
         }
 
         public void Afis()
