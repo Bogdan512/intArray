@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 namespace IntArrays
 {
 #pragma warning disable CA1710 // Identifiers should have correct suffix
-    public class ReadOnlyList<T>
+    public class ReadOnlyList<T> : IList<T>
 #pragma warning restore CA1710 // Identifiers should have correct suffix
     {
         private const string MessageInvalidIndex = "Invalid index";
@@ -15,14 +15,25 @@ namespace IntArrays
 
         public ReadOnlyList(T[] arr)
         {
+            Count = arr.Length;
             this.arr = arr;
+        }
+
+        public int Count { get; }
+
+        public bool IsReadOnly
+        {
+            get
+            {
+                return false;
+            }
         }
 
         public new T this[int index]
         {
             get
             {
-                if (index < 0 || index > arr.Length)
+                if (index < 0 || index > Count)
                 {
                     throw new ArgumentException(MessageInvalidIndex);
                 }
@@ -36,9 +47,9 @@ namespace IntArrays
             }
         }
 
-        public IEnumerator GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
-            for (int i = 0; i < arr.Length; i++)
+            for (int i = 0; i < Count; i++)
             {
                 yield return arr[i];
             }
@@ -51,7 +62,7 @@ namespace IntArrays
 
         public int IndexOf(T item)
         {
-            for (int i = 0; i < arr.Length; i++)
+            for (int i = 0; i < Count; i++)
             {
                 if (this.arr[i].Equals(item))
                 {
@@ -98,6 +109,11 @@ namespace IntArrays
             {
                 Console.Write(i);
             }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 }
