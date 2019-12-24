@@ -9,10 +9,6 @@ namespace IntArrays
     {
         public static void Main()
         {
-            MyExceptions me = new MyExceptions();
-
-            SortedList<int> ar = new SortedList<int>();
-
             const int aa = 0;
             const int a = 1;
             const int b = 2;
@@ -21,6 +17,17 @@ namespace IntArrays
             const int e = 5;
             const int f = 6;
             const int g = 7;
+
+            DoubleCircularLinkedList list = new DoubleCircularLinkedList();
+            list.AddNode(c);
+            list.AddNode(e);
+            list.AddNode(g);
+            list.Print();
+
+            MyExceptions me = new MyExceptions();
+
+            SortedList<int> ar = new SortedList<int>();
+
             ar.Add(d);
             ar.Add(b);
             ar.Add(f);
