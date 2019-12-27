@@ -6,89 +6,25 @@ namespace IntArrays
 {
     public class DoubleCircularLinkedList
     {
-        static Node root;
-        static Node current;
+        readonly Node root;
+        readonly Node current;
 
-        public void AddNode(int data)
+        public DoubleCircularLinkedList(int rootNode)
         {
-            Node node = new Node(data);
-
-            if (root == null)
-            {
-                root = node;
-                root.NextNode = root;
-                root.PreviousNode = root;
-            }
-            else
-            {
-                current = root;
-                while (current.NextNode != root)
-                {
-                    current = current.NextNode;
-                }
-
-                current.NextNode = node;
-                node.NextNode = root;
-                node.PreviousNode = current;
-                root.PreviousNode = node;
-            }
+            root = new Node(rootNode);
+            current = root;
+            current.Next = root.Previous;
+            current.Previous = root.Next;
         }
 
-        public void InsertNode(int data, int numberNodeToInsert)
+        public Node GetCurrent()
         {
-            Node temp;
-            Node node = new Node(data);
-            int numberNodes = 1;
-            current = root;
-
-            while (numberNodes != numberNodeToInsert)
-            {
-                current = current.NextNode;
-                numberNodes++;
-            }
-
-            temp = current.NextNode;
-            current.NextNode = node;
-            node.NextNode = temp;
-            temp.PreviousNode = node;
-            node.PreviousNode = current;
+            return current;
         }
 
-        public void DeleteNode(int nodeToDelete)
+        public Node GetRoot()
         {
-            int numberNode = 1;
-            current = root;
-
-            if (nodeToDelete == 1)
-            {
-                root.NextNode.PreviousNode = root.PreviousNode;
-                root.PreviousNode.NextNode = root.NextNode;
-                root = root.NextNode;
-            }
-            else
-            {
-                while (numberNode != nodeToDelete)
-                {
-                    current = current.NextNode;
-                    numberNode++;
-                }
-
-                current.NextNode.PreviousNode = current.PreviousNode;
-                current.PreviousNode.NextNode = current.NextNode;
-                current = current.NextNode;
-            }
-        }
-
-        public void Print()
-        {
-            current = root;
-            while (current.NextNode != root)
-            {
-                Console.Write("|" + current.Data + "|-->");
-                current = current.NextNode;
-            }
-
-            Console.Write(root.PreviousNode.Data);
+            return root;
         }
     }
 }

@@ -10,10 +10,10 @@ namespace IntArrays
         [Fact]
         public void AddNode()
         {
-            DoubleCircularLinkedList list = new DoubleCircularLinkedList();
-            list.AddNode(3);
-            list.AddNode(5);
-            list.AddNode(7);
+            DoubleCircularLinkedList list = new DoubleCircularLinkedList(5);
+            Node current = list.GetCurrent();
+
+            Assert.Same(current.Next, current.Previous);
         }
     }
 }

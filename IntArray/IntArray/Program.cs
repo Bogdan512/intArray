@@ -18,12 +18,6 @@ namespace IntArrays
             const int f = 6;
             const int g = 7;
 
-            DoubleCircularLinkedList list = new DoubleCircularLinkedList();
-            list.AddNode(c);
-            list.AddNode(e);
-            list.AddNode(g);
-            list.Print();
-
             MyExceptions me = new MyExceptions();
 
             SortedList<int> ar = new SortedList<int>();
