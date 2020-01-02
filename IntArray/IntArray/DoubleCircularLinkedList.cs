@@ -7,19 +7,32 @@ namespace IntArrays
     public class DoubleCircularLinkedList
     {
         readonly Node root;
-        readonly Node current;
 
         public DoubleCircularLinkedList(int rootNode)
         {
             root = new Node(rootNode);
-            current = root;
-            current.Next = root.Previous;
-            current.Previous = root.Next;
+            root.Next = root;
+            root.Previous = root;
         }
 
-        public Node GetCurrent()
+        public void Add(int data)
         {
-            return current;
+            Node node = new Node(data);
+            if (root.Next == root)
+            {
+                root.Next = node;
+                root.Previous = node;
+                node.Previous = root;
+                node.Next = root;
+            }
+            else
+            {
+                Node last = root.Previous;
+                node.Next = root;
+                root.Previous = node;
+                node.Previous = last;
+                last.Next = node;
+            }
         }
 
         public Node GetRoot()

@@ -6,15 +6,11 @@ namespace IntArrays
 {
     public class Node
     {
-        readonly int nrofnodes;
         readonly int data;
 
         public Node(int data)
         {
             this.data = data;
-            nrofnodes++;
-            Next = null;
-            Previous = null;
         }
 
         public Node Next { get; set; }
@@ -24,11 +20,6 @@ namespace IntArrays
         public int GetData()
         {
             return data;
-        }
-
-        public int GetNrOfNodes()
-        {
-            return nrofnodes;
         }
     }
 }
