@@ -10,7 +10,7 @@ namespace IntArrays
         [Fact]
         public void AddNode()
         {
-            DoubleCircularLinkedList list = new DoubleCircularLinkedList(1);
+            DoubleCircularLinkedList<int> list = new DoubleCircularLinkedList<int>(1);
             list.Add(4);
             list.Add(5);
             list.Add(7);

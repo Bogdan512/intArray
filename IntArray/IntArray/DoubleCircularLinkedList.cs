@@ -4,20 +4,20 @@ using System.Text;
 
 namespace IntArrays
 {
-    public class DoubleCircularLinkedList
+    public class DoubleCircularLinkedList<T>
     {
-        readonly Node root;
+        readonly Node<T> root;
 
-        public DoubleCircularLinkedList(int rootNode)
+        public DoubleCircularLinkedList(T rootNode)
         {
-            root = new Node(rootNode);
+            root = new Node<T>(rootNode);
             root.Next = root;
             root.Previous = root;
         }
 
-        public void Add(int data)
+        public void Add(T data)
         {
-            Node node = new Node(data);
+            Node<T> node = new Node<T>(data);
             if (root.Next == root)
             {
                 root.Next = node;
@@ -27,7 +27,7 @@ namespace IntArrays
             }
             else
             {
-                Node last = root.Previous;
+                Node<T> last = root.Previous;
                 node.Next = root;
                 root.Previous = node;
                 node.Previous = last;
@@ -35,7 +35,7 @@ namespace IntArrays
             }
         }
 
-        public Node GetRoot()
+        public Node<T> GetRoot()
         {
             return root;
         }

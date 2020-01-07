@@ -4,20 +4,20 @@ using System.Text;
 
 namespace IntArrays
 {
-    public class Node
+    public class Node<T>
     {
-        readonly int data;
+        readonly T data;
 
-        public Node(int data)
+        public Node(T data)
         {
             this.data = data;
         }
 
-        public Node Next { get; set; }
+        public Node<T> Next { get; set; }
 
-        public Node Previous { get; set; }
+        public Node<T> Previous { get; set; }
 
-        public int GetData()
+        public T GetData()
         {
             return data;
         }
