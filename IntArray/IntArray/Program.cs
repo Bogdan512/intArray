@@ -18,8 +18,6 @@ namespace IntArrays
             const int f = 6;
             const int g = 7;
 
-            MyExceptions me = new MyExceptions();
-
             SortedList<int> ar = new SortedList<int>();
 
             ar.Add(d);

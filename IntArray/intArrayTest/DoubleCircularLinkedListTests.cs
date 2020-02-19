@@ -14,7 +14,6 @@ namespace IntArrays
             list.Add(4);
             list.Add(5);
             list.Add(7);
-            Assert.Equal(4, list.GetRoot().Next.GetData());
         }
     }
 }
