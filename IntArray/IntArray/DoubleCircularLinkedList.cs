@@ -25,5 +25,33 @@ namespace IntArrays
             node.Previous = last;
             last.Next = node;
         }
+
+        public IEnumerable GetEnumerator()
+        {
+            Node<T> current = root;
+            while (current.Next != root)
+            {
+                yield return current.GetData();
+                current = current.Next;
+            }
+
+            yield return root.Previous.GetData();
+        }
+
+        public int GetLocationInList(DoubleCircularLinkedList<T> list, object listItem, int i)
+        {
+            int count = 1;
+            foreach (var v in list.GetEnumerator())
+            {
+                if (v.Equals(listItem) && count == i)
+                {
+                    return count;
+                }
+
+                count++;
+            }
+
+            return -1;
+        }
     }
 }
