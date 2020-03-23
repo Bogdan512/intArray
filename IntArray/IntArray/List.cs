@@ -57,6 +57,11 @@ namespace IntArrays
             }
         }
 
+        IEnumerator<T> System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerator GetEnumerator()
         {
             for (int i = 0; i < Count; i++)
@@ -158,11 +163,6 @@ namespace IntArrays
             {
                 array.SetValue(this.array[i], arrayIndex++);
             }
-        }
-
-        IEnumerator<T> IEnumerable<T>.GetEnumerator()
-        {
-            throw new NotImplementedException();
         }
 
         public void Afis()

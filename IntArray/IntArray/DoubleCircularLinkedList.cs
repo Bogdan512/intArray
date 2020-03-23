@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 
 namespace IntArrays
 {
-    public class DoubleCircularLinkedList<T>
+#pragma warning disable CA1710 // Identifiers should have correct suffix
+    public class DoubleCircularLinkedList<T> : IEnumerable<string>
+#pragma warning restore CA1710 // Identifiers should have correct suffix
     {
         readonly Node<T> root;
 
-        public DoubleCircularLinkedList(T rootNode)
+        public DoubleCircularLinkedList()
         {
-            root = new Node<T>(rootNode);
+            root = new Node<T>(default(T));
             root.Next = root;
             root.Previous = root;
         }
@@ -26,32 +27,16 @@ namespace IntArrays
             last.Next = node;
         }
 
-        public IEnumerable GetEnumerator()
+        public IEnumerator<string> GetEnumerator()
         {
-            Node<T> current = root;
-            while (current.Next != root)
-            {
-                yield return current.GetData();
-                current = current.Next;
-            }
-
-            yield return root.Previous.GetData();
+           yield return "a";
+           yield return "b";
+           yield return "c";
         }
 
-        public int GetLocationInList(DoubleCircularLinkedList<T> list, object listItem, int i)
+        IEnumerator IEnumerable.GetEnumerator()
         {
-            int count = 1;
-            foreach (var v in list.GetEnumerator())
-            {
-                if (v.Equals(listItem) && count == i)
-                {
-                    return count;
-                }
-
-                count++;
-            }
-
-            return -1;
+            return GetEnumerator();
         }
     }
 }

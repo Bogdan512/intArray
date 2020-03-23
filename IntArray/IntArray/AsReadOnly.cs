@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 namespace IntArrays
 {
 #pragma warning disable CA1710 // Identifiers should have correct suffix
-    public class AsReadOnly<T> : List<T>, IList<T>
+    public class AsReadOnly<T> : List<T>
 #pragma warning restore CA1710 // Identifiers should have correct suffix
     {
         private const string MessageInvalidIndex = "Invalid index";
@@ -90,11 +90,6 @@ namespace IntArrays
         public new void CopyTo(T[] array, int arrayIndex)
         {
             throw new NotSupportedException(MessageReadOnly);
-        }
-
-        IEnumerator<T> IEnumerable<T>.GetEnumerator()
-        {
-            throw new NotImplementedException();
         }
 
         public void Afis()
