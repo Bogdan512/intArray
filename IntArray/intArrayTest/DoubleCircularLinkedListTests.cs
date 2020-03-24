@@ -10,8 +10,8 @@ namespace IntArrays
         [Fact]
         public void Add_String()
         {
-            var list = new DoubleCircularLinkedList<string> { "a", "b", "c" };
-            Assert.Equal(new[] { "a", "b", "c"}, list);
+            var list = new DoubleCircularLinkedList<string> { "a", "b" };
+            Assert.Equal(new[] { "a", "b"}, list);
         }
 
     }

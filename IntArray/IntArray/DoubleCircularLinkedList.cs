@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace IntArrays
 {
 #pragma warning disable CA1710 // Identifiers should have correct suffix
-    public class DoubleCircularLinkedList<T> : IEnumerable<string>
+    public class DoubleCircularLinkedList<T> : IEnumerable<T>
 #pragma warning restore CA1710 // Identifiers should have correct suffix
     {
         readonly Node<T> root;
@@ -27,11 +27,16 @@ namespace IntArrays
             last.Next = node;
         }
 
-        public IEnumerator<string> GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
-           yield return "a";
-           yield return "b";
-           yield return "c";
+            {
+                Node<T> node = root.Next;
+                while (node.GetData() != null)
+                {
+                    yield return node.GetData();
+                    node = node.Next;
+                }
+            }
         }
 
         IEnumerator IEnumerable.GetEnumerator()
