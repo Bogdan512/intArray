@@ -29,13 +29,11 @@ namespace IntArrays
 
         public IEnumerator<T> GetEnumerator()
         {
+            Node<T> node = root.Next;
+            while (node != root)
             {
-                Node<T> node = root.Next;
-                while (node.GetData() != null)
-                {
-                    yield return node.GetData();
-                    node = node.Next;
-                }
+                yield return node.GetData();
+                node = node.Next;
             }
         }
 
