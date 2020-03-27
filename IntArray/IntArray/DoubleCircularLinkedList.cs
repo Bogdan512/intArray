@@ -29,11 +29,9 @@ namespace IntArrays
 
         public IEnumerator<T> GetEnumerator()
         {
-            Node<T> node = root.Next;
-            while (node != root)
+            for (Node<T> node = root.Next; node != root; node = node.Next)
             {
                 yield return node.GetData();
-                node = node.Next;
             }
         }
 
