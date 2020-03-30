@@ -14,5 +14,13 @@ namespace IntArrays
             Assert.Equal(new[] { "a", "b", "c"}, list);
         }
 
+        [Fact]
+        public void Count()
+        {
+            var list = new DoubleCircularLinkedList<string> { "a", "b", "c" };
+            int count = 3;
+            Assert.Equal(count, list.Count);
+        }
+
     }
 }
