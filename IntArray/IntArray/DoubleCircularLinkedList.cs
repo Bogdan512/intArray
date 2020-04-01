@@ -24,6 +24,16 @@ namespace IntArrays
 
         public object SyncRoot { get; }
 
+        public T First()
+        {
+            return root.Next.GetData();
+        }
+
+        public T Last()
+        {
+            return root.Previous.GetData();
+        }
+
         public void Add(T data)
         {
             Node<T> node = new Node<T>(data);

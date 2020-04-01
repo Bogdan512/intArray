@@ -15,12 +15,25 @@ namespace IntArrays
         }
 
         [Fact]
-        public void Count()
+        public void CountTest()
         {
             var list = new DoubleCircularLinkedList<string> { "a", "b", "c" };
             int count = 3;
             Assert.Equal(count, list.Count);
         }
 
+        [Fact]
+        public void First_Test()
+        {
+            var list = new DoubleCircularLinkedList<string> { "a", "b", "c" };
+            Assert.Equal("a", list.First());
+        }
+
+        [Fact]
+        public void Last_Test()
+        {
+            var list = new DoubleCircularLinkedList<string> { "a", "b", "c" };
+            Assert.Equal("c", list.Last());
+        }
     }
 }
