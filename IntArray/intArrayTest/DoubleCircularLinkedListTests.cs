@@ -26,14 +26,14 @@ namespace IntArrays
         public void First_Test()
         {
             var list = new DoubleCircularLinkedList<string> { "a", "b", "c" };
-            Assert.Equal("a", list.First());
+            Assert.Equal("a", list.First);
         }
 
         [Fact]
         public void Last_Test()
         {
             var list = new DoubleCircularLinkedList<string> { "a", "b", "c" };
-            Assert.Equal("c", list.Last());
+            Assert.Equal("c", list.Last);
         }
     }
 }

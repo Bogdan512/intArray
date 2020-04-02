@@ -20,19 +20,19 @@ namespace IntArrays
 
         public int Count { get; private set; }
 
+        public T First
+        {
+            get { return root.Next.GetData(); }
+        }
+
+        public T Last
+        {
+            get { return root.Previous.GetData(); }
+        }
+
         public bool IsSynchronized { get; }
 
         public object SyncRoot { get; }
-
-        public T First()
-        {
-            return root.Next.GetData();
-        }
-
-        public T Last()
-        {
-            return root.Previous.GetData();
-        }
 
         public void Add(T data)
         {
