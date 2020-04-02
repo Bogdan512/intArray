@@ -22,12 +22,28 @@ namespace IntArrays
 
         public T First
         {
-            get { return root.Next.GetData(); }
+            get
+            {
+                if (Count == 0)
+                {
+                    return default(T);
+                }
+
+                return root.Next.GetData();
+            }
         }
 
         public T Last
         {
-            get { return root.Previous.GetData(); }
+            get
+            {
+                if (Count == 0)
+                {
+                    return default(T);
+                }
+
+                return root.Previous.GetData();
+            }
         }
 
         public bool IsSynchronized { get; }

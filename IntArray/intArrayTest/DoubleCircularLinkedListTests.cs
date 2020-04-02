@@ -35,5 +35,19 @@ namespace IntArrays
             var list = new DoubleCircularLinkedList<string> { "a", "b", "c" };
             Assert.Equal("c", list.Last);
         }
+
+        [Fact]
+        public void EmptyList_First()
+        {
+            var list = new DoubleCircularLinkedList<string> {string.Empty};
+            Assert.Empty(list.Last);
+        }
+
+        [Fact]
+        public void EmptyList_Last()
+        {
+            var list = new DoubleCircularLinkedList<string>();
+            Assert.Null(list.Last);
+        }
     }
 }
