@@ -20,29 +20,31 @@ namespace IntArrays
 
         public int Count { get; private set; }
 
-        public T First
+        public Node<T> First
         {
             get
             {
+                Node<T> node = root.Next;
                 if (Count == 0)
                 {
-                    return default(T);
+                    return null;
                 }
 
-                return root.Next.GetData();
+                return node;
             }
         }
 
-        public T Last
+        public Node<T> Last
         {
             get
             {
+                Node<T> node = root.Previous;
                 if (Count == 0)
                 {
-                    return default(T);
+                    return null;
                 }
 
-                return root.Previous.GetData();
+                return node;
             }
         }
 
