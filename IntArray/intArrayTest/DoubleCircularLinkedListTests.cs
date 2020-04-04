@@ -84,5 +84,14 @@ namespace IntArrays
             var list = new DoubleCircularLinkedList<int> { 1, 2, 3 };
             Assert.Equal(true, list.Contains(3));
         }
+
+        [Fact]
+        public void AddAfter_Test_String_True_Int()
+        {
+            var list = new DoubleCircularLinkedList<int> { 1, 2, 4 };
+            Node<int> doi = new Node<int>(2);
+            list.AddAfter(doi, 3);
+            Assert.Equal(3, list.Last.Previous.GetData());
+        }
     }
 }

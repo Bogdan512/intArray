@@ -93,5 +93,25 @@ namespace IntArrays
 
             return false;
         }
+
+        public void AddAfter(Node<T> noode, T value)
+        {
+            if (!Contains(noode.GetData()))
+            {
+                return;
+            }
+
+            for (Node<T> node = root.Next; node != root; node = node.Next)
+            {
+                if (node.GetData().Equals(noode.GetData()))
+                {
+                    Node<T> newnode = new Node<T>(value);
+                    newnode.Next = node.Next;
+                    node.Next.Previous = newnode;
+                    newnode.Previous = node;
+                    node.Next = newnode;
+                }
+            }
+        }
     }
 }
