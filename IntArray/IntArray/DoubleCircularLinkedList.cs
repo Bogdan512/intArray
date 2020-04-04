@@ -80,5 +80,18 @@ namespace IntArrays
         {
             return GetEnumerator();
         }
+
+        public bool Contains(T value)
+        {
+            for (Node<T> node = root.Next; node != root; node = node.Next)
+            {
+                if (node.GetData().Equals(value))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

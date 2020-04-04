@@ -51,17 +51,38 @@ namespace IntArrays
         }
 
         [Fact]
-        public void EmptyList_First()
+        public void EmptyList_First_Int()
         {
             var list = new DoubleCircularLinkedList<int>();
             Assert.Null(list.First);
         }
 
         [Fact]
-        public void EmptyList_Last()
+        public void EmptyList_Last_Int()
         {
             var list = new DoubleCircularLinkedList<int>();
             Assert.Null(list.Last);
+        }
+
+        [Fact]
+        public void Contains_Test_String_False()
+        {
+            var list = new DoubleCircularLinkedList<string> { "a", "b", "c"};
+            Assert.Equal(false, list.Contains("n"));
+        }
+
+        [Fact]
+        public void Contains_Test_String_True()
+        {
+            var list = new DoubleCircularLinkedList<string> { "a", "b", "c" };
+            Assert.Equal(true, list.Contains("b"));
+        }
+
+        [Fact]
+        public void Contains_Test_String_True_Int()
+        {
+            var list = new DoubleCircularLinkedList<int> { 1, 2, 3 };
+            Assert.Equal(true, list.Contains(3));
         }
     }
 }
