@@ -93,5 +93,14 @@ namespace IntArrays
             list.AddAfter(doi, 3);
             Assert.Equal(3, list.Last.Previous.GetData());
         }
+
+        [Fact]
+        public void AddBefore_Test_String_True_Int()
+        {
+            var list = new DoubleCircularLinkedList<int> { 1, 2, 4 };
+            Node<int> patru = new Node<int>(4);
+            list.AddBefore(patru, 3);
+            Assert.Equal(3, list.Last.Previous.GetData());
+        }
     }
 }

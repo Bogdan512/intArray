@@ -113,5 +113,25 @@ namespace IntArrays
                 }
             }
         }
+
+        public void AddBefore(Node<T> noode, T value)
+        {
+            if (!Contains(noode.GetData()))
+            {
+                return;
+            }
+
+            for (Node<T> node = root.Next; node != root; node = node.Next)
+            {
+                if (node.GetData().Equals(noode.GetData()))
+                {
+                    Node<T> newnode = new Node<T>(value);
+                    newnode.Next = node;
+                    node.Previous.Next = newnode;
+                    newnode.Previous = node.Previous;
+                    node.Previous = newnode;
+                }
+            }
+        }
     }
 }
