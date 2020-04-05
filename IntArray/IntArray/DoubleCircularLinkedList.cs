@@ -201,5 +201,22 @@ namespace IntArrays
 
             return noode;
         }
+
+        public void Remove(T value)
+        {
+            if (!Contains(value))
+            {
+                return;
+            }
+
+            for (Node<T> node = root.Next; node != root; node = node.Next)
+            {
+                if (node.GetData().Equals(value))
+                {
+                    node.Previous.Next = node.Next;
+                    node.Next.Previous = node.Previous;
+                }
+            }
+        }
     }
 }
