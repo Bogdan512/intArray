@@ -79,14 +79,14 @@ namespace IntArrays
         }
 
         [Fact]
-        public void Contains_Test_String_True_Int()
+        public void Contains_Test_True_Int()
         {
             var list = new DoubleCircularLinkedList<int> { 1, 2, 3 };
             Assert.Equal(true, list.Contains(3));
         }
 
         [Fact]
-        public void AddAfter_Test_String_True_Int()
+        public void AddAfter_Test_True_Int()
         {
             var list = new DoubleCircularLinkedList<int> { 1, 2, 4 };
             Node<int> doi = new Node<int>(2);
@@ -95,12 +95,21 @@ namespace IntArrays
         }
 
         [Fact]
-        public void AddBefore_Test_String_True_Int()
+        public void AddBefore_Test_True_Int()
         {
             var list = new DoubleCircularLinkedList<int> { 1, 2, 4 };
             Node<int> patru = new Node<int>(4);
             list.AddBefore(patru, 3);
             Assert.Equal(3, list.Last.Previous.GetData());
         }
+
+        [Fact]
+        public void AddFirst_Test_String_True()
+        {
+            var list = new DoubleCircularLinkedList<string> { "b", "c", "d" };
+            list.AddFirst("a");
+            Assert.Equal("a", list.First.GetData());
+        }
+
     }
 }

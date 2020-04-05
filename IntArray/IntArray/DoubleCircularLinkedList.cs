@@ -133,5 +133,10 @@ namespace IntArrays
                 }
             }
         }
+
+        public void AddFirst(T value)
+        {
+            AddBefore(root.Next, value);
+        }
     }
 }
