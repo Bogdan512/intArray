@@ -174,5 +174,18 @@ namespace IntArrays
                 i++;
             }
         }
+
+        public Node<T> Find(T value)
+        {
+            for (Node<T> node = root.Next; node != root; node = node.Next)
+            {
+                if (node.GetData().Equals(value))
+                {
+                    return node;
+                }
+            }
+
+            return null;
+        }
     }
 }

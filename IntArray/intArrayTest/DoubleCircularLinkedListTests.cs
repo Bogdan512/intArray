@@ -154,5 +154,13 @@ namespace IntArrays
             list.CopyTo(arr, 2);
             Assert.Equal(array, arr);
         }
+
+        [Fact]
+        public void Find_Test_True_Int()
+        {
+            var list = new DoubleCircularLinkedList<int> { 1, 2, 3 };
+            Node<int> node = new Node<int>(2);
+            Assert.Equal(node.GetData(), list.Find(2).GetData());
+        }
     }
 }
