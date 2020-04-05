@@ -139,9 +139,9 @@ namespace IntArrays
         public void CopyTo_Test_Int()
         {
             var list = new DoubleCircularLinkedList<int> { 1, 2, 3, 4, 5 };
-            int[] arr = new int[4];
-            int [] array = {0, 3, 4, 5};
-            list.CopyTo(arr, 2);
+            int[] arr = new int[3];
+            int [] array = {0, 4, 5};
+            list.CopyTo(arr, 3);
             Assert.Equal(array, arr);
         }
 

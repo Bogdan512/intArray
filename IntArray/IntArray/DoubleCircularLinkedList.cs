@@ -154,7 +154,6 @@ namespace IntArrays
         public void CopyTo(T[] array, int index)
         {
             int i = 0;
-            int j = 0;
             if (index < 0 || index > Count)
             {
                 throw new ArgumentException("Index is smaller or bigger then count");
@@ -169,8 +168,7 @@ namespace IntArrays
             {
                 if (i >= index)
                 {
-                    j++;
-                    array[j] = node.GetData();
+                    array[i - index + 1] = node.GetData();
                 }
 
                 i++;
