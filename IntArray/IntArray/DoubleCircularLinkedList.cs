@@ -143,5 +143,12 @@ namespace IntArrays
         {
             AddAfter(root.Previous, value);
         }
+
+        public void Clear()
+        {
+            root.Next = root;
+            root.Previous = root;
+            Count = 0;
+        }
     }
 }

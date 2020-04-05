@@ -118,5 +118,21 @@ namespace IntArrays
             list.AddLast("d");
             Assert.Equal("d", list.Last.GetData());
         }
+
+        [Fact]
+        public void Clear_Test()
+        {
+            var list = new DoubleCircularLinkedList<string> { "a", "b", "c" };
+            list.Clear();
+            Assert.Empty(list);
+        }
+
+        [Fact]
+        public void Clear_Test_Int()
+        {
+            var list = new DoubleCircularLinkedList<int> { 1, 2, 3 };
+            list.Clear();
+            Assert.Empty(list);
+        }
     }
 }
