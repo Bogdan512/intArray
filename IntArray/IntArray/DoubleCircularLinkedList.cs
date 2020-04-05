@@ -187,5 +187,19 @@ namespace IntArrays
 
             return null;
         }
+
+        public Node<T> FindLast(T value)
+        {
+            Node<T> noode = null;
+            for (Node<T> node = root.Next; node != root; node = node.Next)
+            {
+                if (node.GetData().Equals(value))
+                {
+                    noode = node;
+                }
+            }
+
+            return noode;
+        }
     }
 }

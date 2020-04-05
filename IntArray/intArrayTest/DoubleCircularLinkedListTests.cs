@@ -162,5 +162,19 @@ namespace IntArrays
             Node<int> node = new Node<int>(2);
             Assert.Equal(node.GetData(), list.Find(2).GetData());
         }
+
+        [Fact]
+        public void FindLast_Test_Null_Int()
+        {
+            var list = new DoubleCircularLinkedList<int> { 1, 2, 3 };
+            Assert.Null(list.FindLast(4));
+        }
+
+        [Fact]
+        public void FindLast_Test_True_Int()
+        {
+            var list = new DoubleCircularLinkedList<int> { 1, 2, 3, 4, 2, 5 };
+            Assert.Equal(5, list.FindLast(2).Next.GetData());
+        }
     }
 }
