@@ -111,5 +111,12 @@ namespace IntArrays
             Assert.Equal("a", list.First.GetData());
         }
 
+        [Fact]
+        public void AddLast_Test_String_True()
+        {
+            var list = new DoubleCircularLinkedList<string> { "a", "b", "c" };
+            list.AddLast("d");
+            Assert.Equal("d", list.Last.GetData());
+        }
     }
 }

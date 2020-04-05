@@ -138,5 +138,10 @@ namespace IntArrays
         {
             AddBefore(root.Next, value);
         }
+
+        public void AddLast(T value)
+        {
+            AddAfter(root.Previous, value);
+        }
     }
 }
