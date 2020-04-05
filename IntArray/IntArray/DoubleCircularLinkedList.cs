@@ -150,5 +150,31 @@ namespace IntArrays
             root.Previous = root;
             Count = 0;
         }
+
+        public void CopyTo(T[] array, int index)
+        {
+            int i = 0;
+            int j = 0;
+            if (index < 0 || index > Count)
+            {
+                throw new ArgumentException("Index is smaller or bigger then count");
+            }
+
+            if (array.Length < Count - index - 1)
+            {
+                throw new OverflowException("Array length too small");
+            }
+
+            for (Node<T> node = root.Next; node != root; node = node.Next)
+            {
+                if (i >= index)
+                {
+                    j++;
+                    array[j] = node.GetData();
+                }
+
+                i++;
+            }
+        }
     }
 }
