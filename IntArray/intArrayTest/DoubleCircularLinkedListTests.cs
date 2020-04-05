@@ -184,5 +184,21 @@ namespace IntArrays
             list.Remove("b");
             Assert.Equal("c", list.Find("a").Next.GetData());
         }
+
+        [Fact]
+        public void RemoveFirst_Test_String_True()
+        {
+            var list = new DoubleCircularLinkedList<string> { "a", "b", "c" };
+            list.RemoveFirst();
+            Assert.Equal("c", list.Find("b").Previous.Previous.GetData());
+        }
+
+        [Fact]
+        public void RemoveLast_Test_String_True()
+        {
+            var list = new DoubleCircularLinkedList<string> { "a", "b", "c" };
+            list.RemoveLast();
+            Assert.Equal("a", list.Find("b").Next.Next.GetData());
+        }
     }
 }

@@ -218,5 +218,17 @@ namespace IntArrays
                 }
             }
         }
+
+        public void RemoveFirst()
+        {
+            First.Next.Previous = Last;
+            Last.Previous = First.Next.Previous;
+        }
+
+        public void RemoveLast()
+        {
+            Last.Previous.Next = root;
+            root.Previous = Last.Previous.Next;
+        }
     }
 }
