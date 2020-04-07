@@ -90,7 +90,8 @@ namespace IntArrays
         {
             var list = new DoubleCircularLinkedList<int> { 1, 2, 4 };
             Node<int> doi = new Node<int>(2);
-            list.AddAfter(doi, 3);
+            Node<int> trei = new Node<int>(3);
+            list.AddAfter(doi, trei);
             Assert.Equal(3, list.Last.Previous.GetData());
         }
 
@@ -98,9 +99,9 @@ namespace IntArrays
         public void AddBefore_Test_True_Int()
         {
             var list = new DoubleCircularLinkedList<int> { 1, 2, 4 };
-            Node<int> patru = new Node<int>(4);
-            list.AddBefore(patru, 3);
-            Assert.Equal(3, list.Last.Previous.GetData());
+            Node<int> unu = new Node<int>(1);
+            list.AddBefore(unu, 3);
+            Assert.Equal(3, list.Last.Previous.Previous.Previous.GetData());
         }
 
         [Fact]
