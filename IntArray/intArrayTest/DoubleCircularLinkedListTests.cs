@@ -99,16 +99,18 @@ namespace IntArrays
         public void AddBefore_Test_True_Int()
         {
             var list = new DoubleCircularLinkedList<int> { 1, 2, 4 };
-            Node<int> unu = new Node<int>(1);
-            list.AddBefore(unu, 3);
-            Assert.Equal(3, list.Last.Previous.Previous.Previous.GetData());
+            Node<int> doi = new Node<int>(2);
+            Node<int> trei = new Node<int>(3);
+            list.AddBefore(doi, trei);
+            Assert.Equal(3, list.Last.Previous.GetData());
         }
 
         [Fact]
         public void AddFirst_Test_String_True()
         {
             var list = new DoubleCircularLinkedList<string> { "b", "c", "d" };
-            list.AddFirst("a");
+            Node<string> a = new Node<string>("a");
+            list.AddFirst(a);
             Assert.Equal("a", list.First.GetData());
         }
 

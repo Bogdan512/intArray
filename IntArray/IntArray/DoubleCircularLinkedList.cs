@@ -113,29 +113,14 @@ namespace IntArrays
             }
         }
 
-        public void AddBefore(Node<T> noode, T value)
+        public void AddBefore(Node<T> node1, Node<T> node2)
         {
-            if (!Contains(noode.GetData()))
-            {
-                return;
-            }
-
-            for (Node<T> node = root.Next; node != root; node = node.Next)
-            {
-                if (node.GetData().Equals(noode.GetData()))
-                {
-                    Node<T> newnode = new Node<T>(value);
-                    newnode.Next = node;
-                    node.Previous.Next = newnode;
-                    newnode.Previous = node.Previous;
-                    node.Previous = newnode;
-                }
-            }
+            AddAfter(node1, node2);
         }
 
-        public void AddFirst(T value)
+        public void AddFirst(Node<T> node1)
         {
-             AddBefore(First, value);
+            AddAfter(root, node1);
         }
 
         public void AddLast(T value)
@@ -228,18 +213,6 @@ namespace IntArrays
         {
             Last.Previous.Next = root;
             root.Previous = Last.Previous.Next;
-        }
-
-        public void Print()
-        {
-            Node<T> current = root;
-            while (current.Next != root)
-            {
-                Console.Write("|" + current.GetData() + "|-->");
-                current = current.Next;
-            }
-
-            Console.Write(root.Previous.GetData());
         }
     }
 }
