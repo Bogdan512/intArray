@@ -94,23 +94,31 @@ namespace IntArrays
             return false;
         }
 
-        public void AddAfter(Node<T> node1, Node<T> node2)
-            {
-            if (!Contains(node1.GetData()))
-            {
-               return;
-            }
-
-            for (Node<T> node = root.Next; node != root; node = node.Next)
+        public Node<T> Parcurge(Node<T> node1)
+        {
+            for (Node<T> node = root; node.Next != root; node = node.Next)
             {
                 if (node.GetData().Equals(node1.GetData()))
                 {
-                    node2.Next = node.Next;
-                    node.Next = node2;
-                    node2.Next.Previous = node2;
-                    node2.Previous = node;
+                    return node;
                 }
             }
+
+            return root;
+        }
+
+        public void AddAfter(Node<T> node1, Node<T> node2)
+            {
+            Node<T> node = Parcurge(node1);
+            if (!node.GetData().Equals(node1.GetData()))
+            {
+                return;
+            }
+
+            node2.Next = node.Next;
+            node.Next = node2;
+            node2.Next.Previous = node2;
+            node2.Previous = node;
         }
 
         public void AddBefore(Node<T> node1, Node<T> node2)
