@@ -52,17 +52,6 @@ namespace IntArrays
 
         public object SyncRoot { get; }
 
-        public void Add(T data)
-        {
-            Node<T> node = new Node<T>(data);
-            Node<T> last = root.Previous;
-            node.Next = root;
-            root.Previous = node;
-            node.Previous = last;
-            last.Next = node;
-            Count++;
-        }
-
         public void CopyTo(Array array, int index)
         {
             throw new NotImplementedException();
@@ -94,12 +83,19 @@ namespace IntArrays
             return false;
         }
 
+        public void Add(T data)
+        {
+            Node<T> node = new Node<T>(data);
+            AddLast(root.Previous, node);
+        }
+
         public void AddAfter(Node<T> nodeToInsertAfter, Node<T> nodeToInsert)
         {
             nodeToInsert.Next = nodeToInsertAfter.Next;
             nodeToInsertAfter.Next.Previous = nodeToInsert;
             nodeToInsertAfter.Next = nodeToInsert;
             nodeToInsert.Previous = nodeToInsertAfter;
+            Count++;
         }
 
         public void AddBefore(Node<T> nodeToInsertBefore, Node<T> nodeToInsert)
@@ -107,14 +103,14 @@ namespace IntArrays
             AddAfter(nodeToInsertBefore.Previous, nodeToInsert);
         }
 
-        public void AddFirst(Node<T> node1)
+        public void AddFirst(Node<T> nodeToInsert)
         {
-            AddAfter(root, node1);
+            AddAfter(root, nodeToInsert);
         }
 
-        public void AddLast(T value)
+        public void AddLast(Node<T> lastNode, Node<T> nodeToInsert)
         {
-            Add(value);
+            AddAfter(lastNode, nodeToInsert);
         }
 
         public void Clear()

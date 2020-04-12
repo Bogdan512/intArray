@@ -118,7 +118,9 @@ namespace IntArrays
         public void AddLast_Test_String_True()
         {
             var list = new DoubleCircularLinkedList<string> { "a", "b", "c" };
-            list.AddLast("d");
+            Node<string> last = list.Last;
+            Node<string> d = new Node<string>("d");
+            list.AddLast(last, d);
             Assert.Equal("d", list.Last.GetData());
         }
 
