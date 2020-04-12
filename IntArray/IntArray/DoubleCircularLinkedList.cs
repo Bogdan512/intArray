@@ -94,17 +94,17 @@ namespace IntArrays
             return false;
         }
 
-        public void AddAfter(Node<T> node1, Node<T> node2)
+        public void AddAfter(Node<T> nodeToInsertAfter, Node<T> nodeToInsert)
         {
-            node2.Next = node1.Next;
-            node1.Next = node2;
-            node2.Next.Previous = node2;
-            node2.Previous = node1;
+            nodeToInsert.Next = nodeToInsertAfter.Next;
+            nodeToInsertAfter.Next.Previous = nodeToInsert;
+            nodeToInsertAfter.Next = nodeToInsert;
+            nodeToInsert.Previous = nodeToInsertAfter;
         }
 
-        public void AddBefore(Node<T> node1, Node<T> node2)
+        public void AddBefore(Node<T> nodeToInsertBefore, Node<T> nodeToInsert)
         {
-            AddAfter(node1, node2);
+            AddAfter(nodeToInsertBefore.Previous, nodeToInsert);
         }
 
         public void AddFirst(Node<T> node1)

@@ -99,7 +99,7 @@ namespace IntArrays
         public void AddBefore_Test_True_Int()
         {
             var list = new DoubleCircularLinkedList<int> { 1, 2, 4 };
-            Node<int> doi = list.First.Next;
+            Node<int> doi = list.Last;
             Node<int> trei = new Node<int>(3);
             list.AddBefore(doi, trei);
             Assert.Equal(3, list.Last.Previous.GetData());
