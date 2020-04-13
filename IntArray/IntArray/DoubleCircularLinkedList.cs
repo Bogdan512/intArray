@@ -89,6 +89,15 @@ namespace IntArrays
             AddLast(root.Previous, node);
         }
 
+        public void AddAfter(Node<T> nodeToInsertAfter, T value)
+        {
+            Node<T> newnode = new Node<T>(value);
+            newnode.Next = nodeToInsertAfter.Next;
+            nodeToInsertAfter.Next.Previous = newnode;
+            nodeToInsertAfter.Next = newnode;
+            newnode.Previous = nodeToInsertAfter;
+        }
+
         public void AddAfter(Node<T> nodeToInsertAfter, Node<T> nodeToInsert)
         {
             nodeToInsert.Next = nodeToInsertAfter.Next;

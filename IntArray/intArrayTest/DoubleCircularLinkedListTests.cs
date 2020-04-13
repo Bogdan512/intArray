@@ -86,6 +86,16 @@ namespace IntArrays
         }
 
         [Fact]
+        public void AddAfter_Value_Test_True_Int()
+        {
+            var list = new DoubleCircularLinkedList<int> { 1, 2, 4 };
+            Node<int> doi = list.First.Next;
+            int trei = 3;
+            list.AddAfter(doi, trei);
+            Assert.Equal(3, list.Last.Previous.GetData());
+        }
+
+        [Fact]
         public void AddAfter_Test_True_Int()
         {
             var list = new DoubleCircularLinkedList<int> { 1, 2, 4 };
