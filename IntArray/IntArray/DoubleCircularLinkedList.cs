@@ -91,12 +91,8 @@ namespace IntArrays
 
         public void AddAfter(Node<T> nodeToInsertAfter, T value)
         {
-            Node<T> newnode = new Node<T>(value);
-            newnode.Next = nodeToInsertAfter.Next;
-            nodeToInsertAfter.Next.Previous = newnode;
-            nodeToInsertAfter.Next = newnode;
-            newnode.Previous = nodeToInsertAfter;
-            Count++;
+            Node<T> nodeToInsert = new Node<T>(value);
+            AddAfter(nodeToInsertAfter, nodeToInsert);
         }
 
         public void AddAfter(Node<T> nodeToInsertAfter, Node<T> nodeToInsert)
