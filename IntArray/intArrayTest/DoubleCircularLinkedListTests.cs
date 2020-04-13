@@ -144,6 +144,15 @@ namespace IntArrays
         }
 
         [Fact]
+        public void AddLast_Value_Test_True_Int()
+        {
+            var list = new DoubleCircularLinkedList<int> { 1, 2, 4 };
+            int cinci = 5;
+            list.AddLast(cinci);
+            Assert.Equal(5, list.Last.GetData());
+        }
+
+        [Fact]
         public void AddLast_Test_String_True()
         {
             var list = new DoubleCircularLinkedList<string> { "a", "b", "c" };

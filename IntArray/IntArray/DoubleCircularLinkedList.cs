@@ -128,6 +128,11 @@ namespace IntArrays
             AddAfter(root, nodeToInsert);
         }
 
+        public void AddLast(T value)
+        {
+            AddAfter(root.Previous, value);
+        }
+
         public void AddLast(Node<T> lastNode, Node<T> nodeToInsert)
         {
             AddAfter(lastNode, nodeToInsert);
