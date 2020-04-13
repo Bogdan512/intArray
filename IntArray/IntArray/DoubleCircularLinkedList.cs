@@ -96,6 +96,7 @@ namespace IntArrays
             nodeToInsertAfter.Next.Previous = newnode;
             nodeToInsertAfter.Next = newnode;
             newnode.Previous = nodeToInsertAfter;
+            Count++;
         }
 
         public void AddAfter(Node<T> nodeToInsertAfter, Node<T> nodeToInsert)
@@ -107,9 +108,19 @@ namespace IntArrays
             Count++;
         }
 
+        public void AddBefore(Node<T> nodeToInsertAfter, T value)
+        {
+            AddAfter(nodeToInsertAfter.Previous, value);
+        }
+
         public void AddBefore(Node<T> nodeToInsertBefore, Node<T> nodeToInsert)
         {
             AddAfter(nodeToInsertBefore.Previous, nodeToInsert);
+        }
+
+        public void AddFirst(T value)
+        {
+            AddAfter(root, value);
         }
 
         public void AddFirst(Node<T> nodeToInsert)

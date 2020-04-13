@@ -106,6 +106,16 @@ namespace IntArrays
         }
 
         [Fact]
+        public void AddBefore_Value_Test_True_Int()
+        {
+            var list = new DoubleCircularLinkedList<int> { 1, 2, 4 };
+            Node<int> doi = list.First.Next;
+            int trei = 3;
+            list.AddAfter(doi, trei);
+            Assert.Equal(3, list.Last.Previous.GetData());
+        }
+
+        [Fact]
         public void AddBefore_Test_True_Int()
         {
             var list = new DoubleCircularLinkedList<int> { 1, 2, 4 };
@@ -113,6 +123,15 @@ namespace IntArrays
             Node<int> trei = new Node<int>(3);
             list.AddBefore(doi, trei);
             Assert.Equal(3, list.Last.Previous.GetData());
+        }
+
+        [Fact]
+        public void AddFirst_Value_Test_True_Int()
+        {
+            var list = new DoubleCircularLinkedList<int> { 1, 2, 4 };
+            int trei = 3;
+            list.AddFirst(trei);
+            Assert.Equal(3, list.First.GetData());
         }
 
         [Fact]
