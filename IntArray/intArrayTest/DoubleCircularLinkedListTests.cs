@@ -233,9 +233,11 @@ namespace IntArrays
         [Fact]
         public void RemoveFirst_Test_String_True()
         {
-            var list = new DoubleCircularLinkedList<string> { "a", "b", "c" };
+            var list = new DoubleCircularLinkedList<string> { "a", "b", "c", "d", "e" };
+            Assert.Equal(5, list.Count);
             list.RemoveFirst();
-            Assert.Equal("c", list.Find("b").Previous.Previous.GetData());
+            Assert.Equal("b", list.First.GetData());
+            Assert.Equal(4, list.Count);
         }
 
         [Fact]
