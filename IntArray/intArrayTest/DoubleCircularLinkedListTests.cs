@@ -224,8 +224,10 @@ namespace IntArrays
         public void Remove_Test_String_True()
         {
             var list = new DoubleCircularLinkedList<string> { "a", "b", "c" };
+            Assert.Equal(3, list.Count);
             list.Remove("b");
             Assert.Equal("c", list.First.Next.GetData());
+            Assert.Equal(2, list.Count);
         }
 
         [Fact]
