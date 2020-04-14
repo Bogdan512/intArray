@@ -194,11 +194,6 @@ namespace IntArrays
 
         public void Remove(Node<T> node)
         {
-            if (Find(node.GetData()) == null)
-            {
-                return;
-            }
-
             node.Previous.Next = node.Next;
             node.Next.Previous = node.Previous;
             Count--;
