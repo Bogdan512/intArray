@@ -194,11 +194,6 @@ namespace IntArrays
 
         public void Remove(T value)
         {
-            if (!Contains(value))
-            {
-                return;
-            }
-
             for (Node<T> node = root.Next; node != root; node = node.Next)
             {
                 if (node.GetData().Equals(value))
@@ -212,13 +207,13 @@ namespace IntArrays
         public void RemoveFirst()
         {
             First.Next.Previous = Last;
-            Last.Previous = First.Next.Previous;
+            Last.Previous = First.Next;
         }
 
         public void RemoveLast()
         {
             Last.Previous.Next = root;
-            root.Previous = Last.Previous.Next;
+            root.Previous = Last.Previous;
         }
     }
 }
