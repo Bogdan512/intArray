@@ -192,29 +192,26 @@ namespace IntArrays
             return noode;
         }
 
-        public void Remove(T value)
-            {
-            Node<T> nodeToRemove = Find(value);
-            if (nodeToRemove == null)
+        public void Remove(Node<T> node)
+        {
+            if (Find(node.GetData()) == null)
             {
                 return;
             }
 
-            nodeToRemove.Previous.Next = nodeToRemove.Next;
-            nodeToRemove.Next.Previous = nodeToRemove.Previous;
+            node.Previous.Next = node.Next;
+            node.Next.Previous = node.Previous;
             Count--;
         }
 
         public void RemoveFirst()
         {
-            Remove(First.GetData());
+            Remove(First);
         }
 
         public void RemoveLast()
         {
-            Last.Previous.Next = root;
-            root.Previous = Last.Previous;
-            Count--;
+            Remove(Last);
         }
     }
 }
