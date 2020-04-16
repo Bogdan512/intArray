@@ -8,6 +8,7 @@ namespace IntArrays
     public class DoubleCircularLinkedList<T> : IEnumerable<T>, ICollection
 #pragma warning restore CA1710 // Identifiers should have correct suffix
     {
+        private const string MessageNullNode = "Node is null";
         readonly Node<T> root;
 
         public DoubleCircularLinkedList()
@@ -97,6 +98,11 @@ namespace IntArrays
 
         public void AddAfter(Node<T> nodeToInsertAfter, Node<T> nodeToInsert)
         {
+            if (nodeToInsertAfter == null || nodeToInsert == null)
+            {
+                throw new ArgumentException(MessageNullNode);
+            }
+
             nodeToInsert.Next = nodeToInsertAfter.Next;
             nodeToInsertAfter.Next.Previous = nodeToInsert;
             nodeToInsertAfter.Next = nodeToInsert;
