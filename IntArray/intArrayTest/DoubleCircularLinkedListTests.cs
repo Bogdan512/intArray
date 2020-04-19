@@ -106,12 +106,21 @@ namespace IntArrays
         }
 
         [Fact]
-        public void AddAfter_Exception_Test_True_Int()
+        public void AddAfter_NullException_Test_True_Int()
         {
             var list = new DoubleCircularLinkedList<int> { 1, 2, 4 };
             Node<int> doi = list.First.Next;
             Node<int> trei = null;
             Assert.Throws<ArgumentException>(() => list.AddAfter(doi, trei));
+        }
+
+        [Fact]
+        public void AddAfter_InvalidOperationException_Test_True_Int()
+        {
+            var list = new DoubleCircularLinkedList<double> { 1, 2, 4 };
+            Node<double> trei = new Node<double>(3);
+            Node<double> treivirgulacinci = new Node<double>(3.5);
+            Assert.Throws<InvalidOperationException>(() => list.AddAfter(trei, treivirgulacinci));
         }
 
         [Fact]

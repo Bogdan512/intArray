@@ -9,6 +9,7 @@ namespace IntArrays
 #pragma warning restore CA1710 // Identifiers should have correct suffix
     {
         private const string MessageNullNode = "Node is null";
+        private const string NodeNotExist = "Node does not exist";
         readonly Node<T> root;
 
         public DoubleCircularLinkedList()
@@ -92,6 +93,16 @@ namespace IntArrays
 
         public void AddAfter(Node<T> nodeToInsertAfter, T value)
         {
+            if (nodeToInsertAfter == null || value == null)
+            {
+                throw new ArgumentException(MessageNullNode);
+            }
+
+            if (!Contains(nodeToInsertAfter.GetData()))
+            {
+                throw new InvalidOperationException(NodeNotExist);
+            }
+
             Node<T> nodeToInsert = new Node<T>(value);
             AddAfter(nodeToInsertAfter, nodeToInsert);
         }
@@ -101,6 +112,11 @@ namespace IntArrays
             if (nodeToInsertAfter == null || nodeToInsert == null)
             {
                 throw new ArgumentException(MessageNullNode);
+            }
+
+            if (!Contains(nodeToInsertAfter.GetData()))
+            {
+                throw new InvalidOperationException(NodeNotExist);
             }
 
             nodeToInsert.Next = nodeToInsertAfter.Next;
