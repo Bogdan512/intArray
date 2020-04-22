@@ -104,7 +104,7 @@ namespace IntArrays
                 throw new ArgumentException(MessageNullNode);
             }
 
-            if (nodeToInsertAfter.Next == null || nodeToInsertAfter.Previous == null || Count == 0)
+            if (Count == 0)
             {
                 throw new InvalidOperationException(NodeNotExist);
             }

@@ -126,10 +126,12 @@ namespace IntArrays
         [Fact]
         public void AddAfter_InvalidOperationException_EmptyList_Test_True_Int()
         {
-            var list = new DoubleCircularLinkedList<double> {2};
-            Node<double> trei = new Node<double>(3);
-            Node<double> treivirgulacinci = new Node<double>(3.5);
-            Assert.Throws<InvalidOperationException>(() => list.AddAfter(trei, treivirgulacinci));
+            var list = new DoubleCircularLinkedList<int> {1, 2, 3, 5};
+            var list1 = new DoubleCircularLinkedList<int> { 2, 4 };
+            Node<int> treiList = list.Last.Previous;
+            Node<int> treiList1 = list1.Last.Previous;
+            Node<int> patru = new Node<int>(4);
+            Assert.Throws<InvalidOperationException>(() => list.AddAfter(treiList1, patru));
         }
 
         [Fact]
