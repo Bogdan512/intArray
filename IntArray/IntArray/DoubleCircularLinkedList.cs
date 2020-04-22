@@ -93,16 +93,6 @@ namespace IntArrays
 
         public void AddAfter(Node<T> nodeToInsertAfter, T value)
         {
-            if (nodeToInsertAfter == null || value == null)
-            {
-                throw new ArgumentException(MessageNullNode);
-            }
-
-            if (!Contains(nodeToInsertAfter.GetData()))
-            {
-                throw new InvalidOperationException(NodeNotExist);
-            }
-
             Node<T> nodeToInsert = new Node<T>(value);
             AddAfter(nodeToInsertAfter, nodeToInsert);
         }
@@ -114,7 +104,7 @@ namespace IntArrays
                 throw new ArgumentException(MessageNullNode);
             }
 
-            if (!Contains(nodeToInsertAfter.GetData()))
+            if (nodeToInsertAfter.Next == null || nodeToInsertAfter.Previous == null)
             {
                 throw new InvalidOperationException(NodeNotExist);
             }
