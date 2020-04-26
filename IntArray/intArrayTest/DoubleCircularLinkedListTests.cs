@@ -89,9 +89,12 @@ namespace IntArrays
         public void AddAfter_Value_Test_True_Int()
         {
             var list = new DoubleCircularLinkedList<int> { 1, 2, 4 };
+
             Node<int> doi = list.First.Next;
+
             int trei = 3;
             list.AddAfter(doi, trei);
+
             Assert.Equal(3, list.Last.Previous.GetData());
         }
 
@@ -99,39 +102,64 @@ namespace IntArrays
         public void AddAfter_Test_True_Int()
         {
             var list = new DoubleCircularLinkedList<int> { 1, 2, 4 };
+
             Node<int> doi = list.First.Next;
             Node<int> trei = new Node<int>(3);
+
             list.AddAfter(doi, trei);
+
             Assert.Equal(3, list.Last.Previous.GetData());
         }
 
         [Fact]
-        public void AddAfter_NullException_Test_True_Int()
+        public void AddAfter_ArgumentException_NodeToInsertAfter_Null_Test__Int()
         {
-            var list = new DoubleCircularLinkedList<int> { 1, 2, 4 };
-            Node<int> doi = list.First.Next;
-            Node<int> trei = null;
-            Assert.Throws<ArgumentException>(() => list.AddAfter(doi, trei));
+            var list = new DoubleCircularLinkedList<int>();
+
+            Node<int> nodeList = list.Last;
+            Node<int> newNode = new Node<int>(1);
+
+            var exception = Assert.Throws<ArgumentException>(() => list.AddAfter(nodeList, newNode));
+            Assert.Equal("Node to insert after is null", exception.Message);
         }
 
         [Fact]
-        public void AddAfter_InvalidOperationException_Test_True_Int()
+        public void AddAfter_ArgumentException_NodeToInsert_Null_Test__Int()
         {
-            var list = new DoubleCircularLinkedList<double> { 1, 2, 4 };
-            Node<double> trei = new Node<double>(3);
-            Node<double> treivirgulacinci = new Node<double>(3.5);
-            Assert.Throws<InvalidOperationException>(() => list.AddAfter(trei, treivirgulacinci));
+            var list = new DoubleCircularLinkedList<int> { 1, 2, 3, 5};
+
+            Node<int> nodeList = list.Last.Previous;
+            Node<int> newNode = null;
+
+            var exception = Assert.Throws<ArgumentException>(() => list.AddAfter(nodeList, newNode));
+            Assert.Equal("Node to insert is null", exception.Message);
         }
 
         [Fact]
-        public void AddAfter_InvalidOperationException_EmptyList_Test_True_Int()
+        public void AddAfter_InvalidOperationException_NodeToInsertAfter_Test__Int()
         {
-            var list = new DoubleCircularLinkedList<int> {1, 2, 3, 5};
-            var list1 = new DoubleCircularLinkedList<int> { 2, 4 };
-            Node<int> treiList = list.Last.Previous;
-            Node<int> treiList1 = list1.Last.Previous;
-            Node<int> patru = new Node<int>(4);
-            Assert.Throws<InvalidOperationException>(() => list.AddAfter(treiList1, patru));
+            var list1 = new DoubleCircularLinkedList<int> { 1, 2, 3, 5 };
+            var list2 = new DoubleCircularLinkedList<int> { 1, 2, 3, 4 };
+
+            Node<int> nodeList1 = list1.Last.Previous;
+            Node<int> nodeList2 = list2.Last;
+            Node<int> newNode = new Node<int>(4);
+
+            var exception = Assert.Throws<InvalidOperationException>(() => list1.AddAfter(nodeList2, newNode));
+            Assert.Equal("Node to  insert after is not member of list", exception.Message);
+        }
+
+        [Fact]
+        public void AddAfter_InvalidOperationException_NodeToInsert_Test__Int()
+        {
+            var list1 = new DoubleCircularLinkedList<int> { 1, 2, 3, 5 };
+            var list2 = new DoubleCircularLinkedList<int> { 1, 2, 3, 4 };
+
+            Node<int> nodeList1 = list1.Last.Previous;
+            Node<int> nodeList2 = list2.Last;
+
+            var exception = Assert.Throws<InvalidOperationException>(() => list1.AddAfter(nodeList1, nodeList2));
+            Assert.Equal("Node to insert is member of another list", exception.Message);
         }
 
         [Fact]

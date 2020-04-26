@@ -16,6 +16,8 @@ namespace IntArrays
 
         public Node<T> Previous { get; set; }
 
+        public Node<T> Head { get; set; }
+
         public T GetData()
         {
             return data;

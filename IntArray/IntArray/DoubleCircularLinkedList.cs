@@ -8,8 +8,6 @@ namespace IntArrays
     public class DoubleCircularLinkedList<T> : IEnumerable<T>, ICollection
 #pragma warning restore CA1710 // Identifiers should have correct suffix
     {
-        private const string MessageNullNode = "Node is null";
-        private const string NodeNotExist = "Node does not exist";
         readonly Node<T> root;
 
         public DoubleCircularLinkedList()
@@ -18,6 +16,7 @@ namespace IntArrays
             root = new Node<T>(default(T));
             root.Next = root;
             root.Previous = root;
+            root.Head = root;
         }
 
         public int Count { get; private set; }
@@ -99,16 +98,27 @@ namespace IntArrays
 
         public void AddAfter(Node<T> nodeToInsertAfter, Node<T> nodeToInsert)
         {
-            if (nodeToInsertAfter == null || nodeToInsert == null)
+            if (nodeToInsertAfter == null)
             {
-                throw new ArgumentException(MessageNullNode);
+                throw new ArgumentException("Node to insert after is null");
             }
 
-            if (Count == 0)
+            if (nodeToInsert == null)
             {
-                throw new InvalidOperationException(NodeNotExist);
+                throw new ArgumentException("Node to insert is null");
             }
 
+            if (nodeToInsertAfter.Head != root)
+            {
+                throw new InvalidOperationException("Node to  insert after is not member of list");
+            }
+
+            if (nodeToInsert.Head != null)
+            {
+                throw new InvalidOperationException("Node to insert is member of another list");
+            }
+
+            nodeToInsert.Head = root;
             nodeToInsert.Next = nodeToInsertAfter.Next;
             nodeToInsertAfter.Next.Previous = nodeToInsert;
             nodeToInsertAfter.Next = nodeToInsert;
