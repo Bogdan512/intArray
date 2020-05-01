@@ -278,14 +278,14 @@ namespace IntArrays
         }
 
         [Fact]
-        public void CopyTo_ArgumentOutOfRangeException_IndexBigger_Than_Count()
+        public void CopyTo_ArgumentOutOfRangeException_IndexBigger_Than_ArrayLength()
         {
             var list = new DoubleCircularLinkedList<string> { "a", "b", "c"};
 
             string[] array = new string[5];
 
-            var exception = Assert.Throws<ArgumentOutOfRangeException>(() => list.CopyTo(array, 4));
-            Assert.Equal("Index must be smaller then the number of nodes\r\nParameter name: 4", exception.Message);
+            var exception = Assert.Throws<ArgumentOutOfRangeException>(() => list.CopyTo(array, 6));
+            Assert.Equal("Index must be smaller then the number of nodes\r\nParameter name: 6", exception.Message);
         }
 
         [Fact]
@@ -293,9 +293,9 @@ namespace IntArrays
         {
             var list = new DoubleCircularLinkedList<string> { "a", "b", "c", "d", "e" };
 
-            string[] array = new string[2];
+            string[] array = new string[7];
 
-            var exception = Assert.Throws<ArgumentException>(() => list.CopyTo(array, 1));
+            var exception = Assert.Throws<ArgumentException>(() => list.CopyTo(array, 3));
             Assert.Equal("Array length too small", exception.Message);
         }
 

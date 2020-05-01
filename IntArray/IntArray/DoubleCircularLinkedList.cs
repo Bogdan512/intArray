@@ -177,12 +177,12 @@ namespace IntArrays
                 throw new ArgumentOutOfRangeException(index.ToString(),  "Index must be greater then 0");
             }
 
-            if (index > Count)
+            if (index > array.Length)
             {
                 throw new ArgumentOutOfRangeException(index.ToString(), "Index must be smaller then the number of nodes");
             }
 
-            if (array.Length < Count - index - 1)
+            if (array.Length - index < Count)
             {
                 throw new ArgumentException("Array length too small");
             }
