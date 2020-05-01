@@ -267,7 +267,7 @@ namespace IntArrays
         }
 
         [Fact]
-        public void CopyTo_ArgumentOutOfRangeException_Strings()
+        public void CopyTo_ArgumentOutOfRangeException_IndexSmaller_Than_Zero()
         {
             var list = new DoubleCircularLinkedList<string> { "a", "b", "c", "d", "e" };
 
@@ -275,6 +275,17 @@ namespace IntArrays
 
             var exception = Assert.Throws<ArgumentOutOfRangeException>(() => list.CopyTo(array, -1));
             Assert.Equal("Index must be greater then 0\r\nParameter name: -1", exception.Message);
+        }
+
+        [Fact]
+        public void CopyTo_ArgumentOutOfRangeException_IndexBigger_Than_Count()
+        {
+            var list = new DoubleCircularLinkedList<string> { "a", "b", "c"};
+
+            string[] array = new string[5];
+
+            var exception = Assert.Throws<ArgumentOutOfRangeException>(() => list.CopyTo(array, 4));
+            Assert.Equal("Index must be smaller then the number of nodes\r\nParameter name: 4", exception.Message);
         }
 
         [Fact]
@@ -320,6 +331,34 @@ namespace IntArrays
             list.Remove(list.First.Next);
             Assert.Equal("c", list.First.Next.GetData());
             Assert.Equal(2, list.Count);
+        }
+
+        [Fact]
+        public void Remove_Value_ArgumentNullException()
+        {
+            var list = new DoubleCircularLinkedList<string> { "a", "b", "c" };
+
+            var exception = Assert.Throws<ArgumentNullException>(() => list.Remove("d"));
+            Assert.Equal("Node is null\r\nParameter name: d", exception.Message);
+        }
+
+        [Fact]
+        public void Remove_Node_ArgumentException()
+        {
+            var list = new DoubleCircularLinkedList<string>();
+
+            var exception = Assert.Throws<ArgumentNullException>(() => list.Remove(list.First));
+            Assert.Equal("Node is null\r\nParameter name: d", exception.Message);
+        }
+
+        [Fact]
+        public void Remove_Node_InvalidOperationException()
+        {
+            var list1 = new DoubleCircularLinkedList<string> { "a", "b", "c" };
+            var list2 = new DoubleCircularLinkedList<string> { "a", "b", };
+
+            var exception = Assert.Throws<InvalidOperationException>(() => list1.Remove(list2.Last));
+            Assert.Equal("Node to remove is not member of list", exception.Message);
         }
 
         [Fact]
