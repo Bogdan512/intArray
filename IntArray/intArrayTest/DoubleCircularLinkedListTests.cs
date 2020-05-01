@@ -256,10 +256,45 @@ namespace IntArrays
         }
 
         [Fact]
+        public void CopyTo_ArgumentNullException_Strings()
+        {
+            var list = new DoubleCircularLinkedList<string> { "a", "b", "c", "d", "e" };
+
+            string[] array = null;
+
+            var exception = Assert.Throws<ArgumentNullException>(() => list.CopyTo(array, 2));
+            Assert.Equal("Array is null\r\nParameter name: 2", exception.Message);
+        }
+
+        [Fact]
+        public void CopyTo_ArgumentOutOfRangeException_Strings()
+        {
+            var list = new DoubleCircularLinkedList<string> { "a", "b", "c", "d", "e" };
+
+            string[] array = new string[5];
+
+            var exception = Assert.Throws<ArgumentOutOfRangeException>(() => list.CopyTo(array, -1));
+            Assert.Equal("Index must be greater then 0\r\nParameter name: -1", exception.Message);
+        }
+
+        [Fact]
+        public void CopyTo_ArgumentException_Strings()
+        {
+            var list = new DoubleCircularLinkedList<string> { "a", "b", "c", "d", "e" };
+
+            string[] array = new string[2];
+
+            var exception = Assert.Throws<ArgumentException>(() => list.CopyTo(array, 1));
+            Assert.Equal("Array length too small", exception.Message);
+        }
+
+        [Fact]
         public void Find_Test_True_Int()
         {
             var list = new DoubleCircularLinkedList<int> { 1, 2, 3 };
+
             Node<int> node = new Node<int>(2);
+
             Assert.Equal(node.GetData(), list.Find(2).GetData());
         }
 

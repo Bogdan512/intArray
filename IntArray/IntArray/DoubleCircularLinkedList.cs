@@ -166,14 +166,20 @@ namespace IntArrays
         public void CopyTo(T[] array, int index)
         {
             int i = 0;
-            if (index < 0 || index > Count)
+
+            if (array == null)
             {
-                throw new ArgumentException("Index is smaller or bigger then count");
+                throw new ArgumentNullException(index.ToString(), "Array is null");
+            }
+
+            if (index < 0)
+            {
+                throw new ArgumentOutOfRangeException(index.ToString(),  "Index must be greater then 0");
             }
 
             if (array.Length < Count - index - 1)
             {
-                throw new OverflowException("Array length too small");
+                throw new ArgumentException("Array length too small");
             }
 
             for (Node<T> node = root.Next; node != root; node = node.Next)
