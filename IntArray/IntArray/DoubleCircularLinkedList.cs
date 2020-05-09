@@ -225,7 +225,7 @@ namespace IntArrays
                 Node<T> nodeToRemove = Find(value);
                 if (Find(value) == null)
                 {
-                    throw new ArgumentNullException(value.ToString(), "Node is null");
+                    throw new ArgumentNullException(nameof(value));
                 }
 
                 nodeToRemove.Previous.Next = nodeToRemove.Next;
@@ -236,9 +236,9 @@ namespace IntArrays
 
         public void Remove(Node<T> node)
         {
-            if (node.Head == null)
+            if (node == null)
             {
-                throw new System.ArgumentNullException(node.ToString(), "Node is null");
+                throw new ArgumentNullException(nameof(node));
             }
 
             if (node.Head != root)
