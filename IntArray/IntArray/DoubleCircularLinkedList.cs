@@ -165,8 +165,6 @@ namespace IntArrays
 
         public void CopyTo(T[] array, int index)
         {
-            int i = 0;
-
             if (array == null)
             {
                 throw new ArgumentNullException(index.ToString(), "Array is null");
@@ -177,7 +175,7 @@ namespace IntArrays
                 throw new ArgumentOutOfRangeException(index.ToString(),  "Index must be greater then 0");
             }
 
-            if (index > array.Length)
+            if (index >= array.Length)
             {
                 throw new ArgumentOutOfRangeException(index.ToString(), "Index must be smaller then the number of nodes");
             }
@@ -189,12 +187,7 @@ namespace IntArrays
 
             for (Node<T> node = root.Next; node != root; node = node.Next)
             {
-                if (i >= index)
-                {
-                    array[i - index + 1] = node.GetData();
-                }
-
-                i++;
+               array[index++] = node.GetData();
             }
         }
 

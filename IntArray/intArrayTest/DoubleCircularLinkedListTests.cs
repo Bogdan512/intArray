@@ -239,8 +239,8 @@ namespace IntArrays
         public void CopyTo_Test_Int()
         {
             var list = new DoubleCircularLinkedList<int> { 1, 2, 3, 4, 5 };
-            int[] arr = new int[3];
-            int [] array = {0, 4, 5};
+            int[] arr = new int[8];
+            int [] array = {0, 0, 0, 1, 2, 3, 4, 5};
             list.CopyTo(arr, 3);
             Assert.Equal(array, arr);
         }
@@ -249,8 +249,8 @@ namespace IntArrays
         public void CopyTo_Test_Strings()
         {
             var list = new DoubleCircularLinkedList<string> { "a", "b", "c", "d", "e" };
-            string[] arr = new string[4];
-            string[] array = { null, "c", "d", "e" };
+            string[] arr = new string[10];
+            string[] array = { null, null, "a", "b", "c", "d", "e", null, null, null };
             list.CopyTo(arr, 2);
             Assert.Equal(array, arr);
         }
