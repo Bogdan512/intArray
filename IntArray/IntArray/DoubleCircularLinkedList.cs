@@ -167,17 +167,17 @@ namespace IntArrays
         {
             if (array == null)
             {
-                throw new ArgumentNullException(index.ToString(), "Array is null");
+                throw new ArgumentNullException(nameof(index));
             }
 
             if (index < 0)
             {
-                throw new ArgumentOutOfRangeException(index.ToString(),  "Index must be greater then 0");
+                throw new ArgumentOutOfRangeException(nameof(index));
             }
 
             if (index >= array.Length)
             {
-                throw new ArgumentOutOfRangeException(index.ToString(), "Index must be smaller then the number of nodes");
+                throw new ArgumentOutOfRangeException(nameof(index));
             }
 
             if (array.Length - index < Count)
@@ -220,18 +220,16 @@ namespace IntArrays
 
         public void Remove(T value)
         {
-            for (Node<T> node = root.Next; node != root; node = node.Next)
-            {
-                Node<T> nodeToRemove = Find(value);
-                if (Find(value) == null)
-                {
-                    throw new ArgumentNullException(nameof(value));
-                }
+            Node<T> nodeToRemove = Find(value);
 
-                nodeToRemove.Previous.Next = nodeToRemove.Next;
-                nodeToRemove.Next.Previous = nodeToRemove.Previous;
-                Count--;
+            if (nodeToRemove == null)
+            {
+                throw new ArgumentNullException(nameof(value));
             }
+
+            nodeToRemove.Previous.Next = nodeToRemove.Next;
+            nodeToRemove.Next.Previous = nodeToRemove.Previous;
+            Count--;
         }
 
         public void Remove(Node<T> node)

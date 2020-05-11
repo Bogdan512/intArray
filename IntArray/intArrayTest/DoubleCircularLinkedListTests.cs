@@ -263,7 +263,7 @@ namespace IntArrays
             string[] array = null;
 
             var exception = Assert.Throws<ArgumentNullException>(() => list.CopyTo(array, 2));
-            Assert.Equal("Array is null\r\nParameter name: 2", exception.Message);
+            Assert.Equal("Value cannot be null.\r\nParameter name: index", exception.Message);
         }
 
         [Fact]
@@ -274,7 +274,7 @@ namespace IntArrays
             string[] array = new string[5];
 
             var exception = Assert.Throws<ArgumentOutOfRangeException>(() => list.CopyTo(array, -1));
-            Assert.Equal("Index must be greater then 0\r\nParameter name: -1", exception.Message);
+            Assert.Equal("Specified argument was out of the range of valid values.\r\nParameter name: index", exception.Message);
         }
 
         [Fact]
@@ -285,7 +285,7 @@ namespace IntArrays
             string[] array = new string[5];
 
             var exception = Assert.Throws<ArgumentOutOfRangeException>(() => list.CopyTo(array, 6));
-            Assert.Equal("Index must be smaller then the number of nodes\r\nParameter name: 6", exception.Message);
+            Assert.Equal("Specified argument was out of the range of valid values.\r\nParameter name: index", exception.Message);
         }
 
         [Fact]
@@ -340,6 +340,16 @@ namespace IntArrays
 
             var exception = Assert.Throws<ArgumentNullException>(() => list.Remove("d"));
             Assert.Equal("Value cannot be null.\r\nParameter name: value", exception.Message);
+        }
+
+        [Fact]
+        public void Remove_Value()
+        {
+            var list = new DoubleCircularLinkedList<string> { "a", "b", "c", "d", "e" };
+            var Expectedlist = new DoubleCircularLinkedList<string> { "a", "b", "c", "e" };
+
+            list.Remove("d");
+            Assert.Equal(Expectedlist, list);
         }
 
         [Fact]
