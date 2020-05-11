@@ -218,18 +218,19 @@ namespace IntArrays
             return noode;
         }
 
-        public void Remove(T value)
+        public bool Remove(T value)
         {
             Node<T> nodeToRemove = Find(value);
 
             if (nodeToRemove == null)
             {
-                throw new ArgumentNullException(nameof(value));
+                return false;
             }
 
             nodeToRemove.Previous.Next = nodeToRemove.Next;
             nodeToRemove.Next.Previous = nodeToRemove.Previous;
             Count--;
+            return true;
         }
 
         public void Remove(Node<T> node)

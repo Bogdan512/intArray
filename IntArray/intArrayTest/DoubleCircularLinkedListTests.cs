@@ -334,22 +334,20 @@ namespace IntArrays
         }
 
         [Fact]
-        public void Remove_Value_ArgumentNullException()
+        public void Remove_Value_False()
         {
             var list = new DoubleCircularLinkedList<string> { "a", "b", "c" };
 
-            var exception = Assert.Throws<ArgumentNullException>(() => list.Remove("d"));
-            Assert.Equal("Value cannot be null.\r\nParameter name: value", exception.Message);
+            Assert.False(list.Remove("d"));
         }
 
         [Fact]
-        public void Remove_Value()
+        public void Remove_Value_True()
         {
             var list = new DoubleCircularLinkedList<string> { "a", "b", "c", "d", "e" };
             var Expectedlist = new DoubleCircularLinkedList<string> { "a", "b", "c", "e" };
-
-            list.Remove("d");
-            Assert.Equal(Expectedlist, list);
+;
+            Assert.True(list.Remove("d"));
         }
 
         [Fact]
