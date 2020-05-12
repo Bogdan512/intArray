@@ -218,6 +218,13 @@ namespace IntArrays
             return noode;
         }
 
+        public void LinkeNodesAfterNodeRemoved(Node<T> node)
+        {
+            node.Previous.Next = node.Next;
+            node.Next.Previous = node.Previous;
+            Count--;
+        }
+
         public bool Remove(T value)
         {
             Node<T> nodeToRemove = Find(value);
@@ -227,9 +234,7 @@ namespace IntArrays
                 return false;
             }
 
-            nodeToRemove.Previous.Next = nodeToRemove.Next;
-            nodeToRemove.Next.Previous = nodeToRemove.Previous;
-            Count--;
+            LinkeNodesAfterNodeRemoved(nodeToRemove);
             return true;
         }
 
@@ -245,9 +250,7 @@ namespace IntArrays
                 throw new InvalidOperationException("Node to remove is not member of list");
             }
 
-            node.Previous.Next = node.Next;
-            node.Next.Previous = node.Previous;
-            Count--;
+            LinkeNodesAfterNodeRemoved(node);
         }
 
         public void RemoveFirst()
