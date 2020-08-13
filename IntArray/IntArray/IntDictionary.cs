@@ -59,15 +59,25 @@ namespace IntOfArrays
 
         public void Add(int key, TValue value)
         {
+            int modulo = key % firstArray.Length;
             int i = 0;
             while (secondArray[i] != null)
             {
                 i++;
             }
 
-            secondArray[i] = new DictionaryNode<TValue>(key, value, -1);
-            firstArray[key % firstArray.Length] = i;
-            Count++;
+            if (firstArray[modulo] == -1)
+            {
+                secondArray[i] = new DictionaryNode<TValue>(key, value, -1);
+                firstArray[modulo] = i;
+                Count++;
+            }
+            else
+            {
+                secondArray[i] = new DictionaryNode<TValue>(key, value, firstArray[modulo]);
+                firstArray[modulo] = i;
+                Count++;
+            }
         }
 
         public void Clear()

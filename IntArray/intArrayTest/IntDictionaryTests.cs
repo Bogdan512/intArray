@@ -15,6 +15,8 @@ namespace IntOfArrays
             d.Add(1, "a");
             d.Add(2, "b");
             d.Add(10, "c");
+            d.Add(7, "d");
+            d.Add(12, "e");
 
             Assert.Equal("b", d[1]);
         }
