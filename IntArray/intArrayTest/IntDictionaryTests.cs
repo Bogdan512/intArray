@@ -13,8 +13,10 @@ namespace IntOfArrays
             IntDictionary<string> d = new IntDictionary<string>(5);
 
             d.Add(1, "a");
+            d.Add(2, "b");
+            d.Add(10, "c");
 
-            Assert.Equal("a", d[1]);
+            Assert.Equal("b", d[1]);
         }
     }
 }

@@ -12,13 +12,13 @@ namespace IntOfArrays
         private const string MessageInvalidKey = "Invalid key";
         readonly int[] firstArray;
         readonly DictionaryNode<TValue>[] secondArray;
-        int j;
 
         public IntDictionary(int size)
         {
             Count = 0;
             firstArray = new int[size];
             secondArray = new DictionaryNode<TValue>[size];
+            FirstArray();
         }
 
         public ICollection<int> Keys { get; }
@@ -44,7 +44,7 @@ namespace IntOfArrays
                     throw new ArgumentException(MessageInvalidKey);
                 }
 
-                return secondArray[j].GetData();
+                return secondArray[key].GetData();
             }
             set => throw new NotImplementedException();
         }
@@ -59,14 +59,14 @@ namespace IntOfArrays
 
         public void Add(int key, TValue value)
         {
-            j = 0;
-            while (secondArray[j] != null)
+            int i = 0;
+            while (secondArray[i] != null)
             {
-                j++;
+                i++;
             }
 
-            secondArray[j] = new DictionaryNode<TValue>(key, value, -1);
-            firstArray[key % firstArray.Length] = key;
+            secondArray[i] = new DictionaryNode<TValue>(key, value, -1);
+            firstArray[key % firstArray.Length] = i;
             Count++;
         }
 
